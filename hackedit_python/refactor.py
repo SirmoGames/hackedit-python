@@ -253,6 +253,8 @@ class PyRefactor(plugins.WorkspacePlugin):
             self._create_occurrences_dock()
         else:
             self._occurrences_dock.show()
+            self._occurrences_dock.button.show()
+            self._occurrences_dock.button.action.setVisible(True)
         self._occurrences_results.show_results(
             results, self._occurrence_to_search)
 
@@ -455,7 +457,10 @@ class PyRefactor(plugins.WorkspacePlugin):
         Creates the dock widget that shows the refactor diff.
         """
         if self._review_widget:
-            self._remove_preview_dock()
+            self._preview_dock.show()
+            self._preview_dock.button.show()
+            self._preview_dock.button.action.setVisible(True)
+            return
         self._review_widget = QtWidgets.QWidget()
         vlayout = QtWidgets.QVBoxLayout()
         # buttons
@@ -520,19 +525,18 @@ class PyRefactor(plugins.WorkspacePlugin):
         Removes the preview dock widget
         """
         if self._preview_dock is not None:
-            api.window.remove_dock_widget(self._preview_dock)
-            self._preview_dock = None
-            self._review_widget = None
-            self._viewer = None
+            self._preview_dock.hide()
+            self._preview_dock.button.hide()
+            self._preview_dock.button.action.setVisible(False)
 
     def _remove_occurrences_dock(self):
         """
         Removes the occurrences dock widget.
         """
         if self._occurrences_dock is not None:
-            api.window.remove_dock_widget(self._occurrences_dock)
-            self._occurrences_dock = None
-            self._occurrences_results = None
+            self._occurrences_dock.hide()
+            self._occurrences_dock.button.hide()
+            self._occurrences_dock.button.action.setVisible(False)
 
     def _refactor(self):
         """
