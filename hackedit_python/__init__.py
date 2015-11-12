@@ -6,7 +6,7 @@ import os
 import sys
 
 
-__version__ = '1.0a1'
+__version__ = '1.0a2.dev0'
 
 
 BASE = os.path.join(sys.prefix, 'share/hackedit_python/')
