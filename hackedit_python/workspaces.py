@@ -17,6 +17,7 @@ class PythonWorkspace:
             'DocumentOutline',
             'OpenDocuments',
             'Terminal',
+            'HtmlPreview',
             'PyRefactor',
             'PyRun',
             'PyContextMenus',
