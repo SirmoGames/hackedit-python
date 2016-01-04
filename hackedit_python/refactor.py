@@ -9,8 +9,8 @@ from hackedit.api.widgets import DiffViewer, FindResultsWidget
 from pyqode.core.api import TextHelper
 from rope.base import libutils, worder
 from rope.base.exceptions import RopeError
-from rope.base.project import Project, NoProject
 from rope.base.fscommands import FileSystemCommands
+from rope.base.project import Project, NoProject
 from rope.contrib.findit import find_occurrences
 from rope.refactor import multiproject
 from rope.refactor.extract import ExtractMethod, ExtractVariable
@@ -239,6 +239,7 @@ class PyRefactor(plugins.WorkspacePlugin):
             return
         if self._preview and self._pending_changes:
             self._create_review_dock()
+            self._update_preview()
         else:
             self._refactor()
 
@@ -467,7 +468,17 @@ class PyRefactor(plugins.WorkspacePlugin):
         bt_refactor = self._setup_review_buttons(vlayout)
         # Diff viewer
         self._viewer = DiffViewer()
+        vlayout.addWidget(self._viewer)
+        self._review_widget.setLayout(vlayout)
 
+        # Dock widget
+        self._preview_dock = api.window.add_dock_widget(
+            self._review_widget, 'Review',
+            QtGui.QIcon.fromTheme('edit-find'),
+            QtCore.Qt.BottomDockWidgetArea)
+        bt_refactor.setFocus()
+
+    def _update_preview(self):
         try:
             texts = []
             for prj, changes in self._pending_changes:
@@ -485,15 +496,6 @@ class PyRefactor(plugins.WorkspacePlugin):
         except TypeError:
             # not multiproj, one single change set
             self._viewer.setPlainText(self._pending_changes.get_description())
-        vlayout.addWidget(self._viewer)
-        self._review_widget.setLayout(vlayout)
-
-        # Dock widget
-        self._preview_dock = api.window.add_dock_widget(
-            self._review_widget, 'Review',
-            QtGui.QIcon.fromTheme('edit-find'),
-            QtCore.Qt.BottomDockWidgetArea)
-        bt_refactor.setFocus()
 
     def _setup_review_buttons(self, vlayout):
         """
