@@ -10,8 +10,6 @@ from hackedit import api
 from hackedit.api import plugins, special_icons, interpreters, window
 from pyqode.core.widgets import FileSystemHelper
 
-from hackedit_python import run
-
 
 class PyContextMenus(plugins.WorkspacePlugin):
     """
@@ -22,7 +20,8 @@ class PyContextMenus(plugins.WorkspacePlugin):
 
     def activate(self):
         self._tree_view = window.get_project_treeview()
-        self._py_run = plugins.get_plugin_instance(run.PyRun)
+        self._py_run = plugins.get_plugin_instance(
+            api.interpreters.ScriptRunnerPlugin)
         self._setup_treeview_actions()
         self._setup_tab_context_menu(window.get_main_window())
 
