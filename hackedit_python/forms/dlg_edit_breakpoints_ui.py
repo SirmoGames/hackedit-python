@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/colin/Documents/HackEdit/hackedit_python/data/forms/dlg_edit_breakpoints.ui'
+# Form implementation generated from reading ui file '/home/colin/dev/HackEdit/hackedit-python/data/forms/dlg_edit_breakpoints.ui'
 #
-# Created by: PyQt5 UI code generator 5.4.2
+# Created by: PyQt5 UI code generator 5.5.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -114,17 +114,18 @@ class Ui_Dialog(object):
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
-        _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Edit breakpoints"))
-        self.groupBox.setTitle(_translate("Dialog", "Breakpoints"))
-        self.bt_remove_bp.setText(_translate("Dialog", "..."))
-        self.groupBoxProperties.setTitle(_translate("Dialog", "Properties"))
-        self.cb_enabled.setText(_translate("Dialog", "Enabled"))
-        self.label_2.setText(_translate("Dialog", "Condition:"))
-        self.cb_suspend.setToolTip(_translate("Dialog", "True to suspend program when the debugger hits the breakpoint. False to continue."))
-        self.cb_suspend.setText(_translate("Dialog", "Suspend"))
-        self.cb_log_msg.setText(_translate("Dialog", "Log message to console"))
-        self.cb_log_exp.setText(_translate("Dialog", "Log evaluated expression:"))
+        from hackedit.api.gettext import translation
+        _ = translation(package="hackedit-python")
+        Dialog.setWindowTitle(_("Edit breakpoints"))
+        self.groupBox.setTitle(_("Breakpoints"))
+        self.bt_remove_bp.setText(_("..."))
+        self.groupBoxProperties.setTitle(_("Properties"))
+        self.cb_enabled.setText(_("Enabled"))
+        self.label_2.setText(_("Condition:"))
+        self.cb_suspend.setToolTip(_("True to suspend program when the debugger hits the breakpoint. False to continue."))
+        self.cb_suspend.setText(_("Suspend"))
+        self.cb_log_msg.setText(_("Log message to console"))
+        self.cb_log_exp.setText(_("Log evaluated expression:"))
 
 from hackedit_python.editor import DisplayEditor
 from . import hackedit_python_rc

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/colin/Documents/hackedit_python/data/forms/settings_page_editor.ui'
+# Form implementation generated from reading ui file '/home/colin/dev/HackEdit/hackedit-python/data/forms/settings_page_editor.ui'
 #
 # Created by: PyQt5 UI code generator 5.5.1
 #
@@ -32,11 +32,12 @@ class Ui_Form(object):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
-        _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.groupBox.setTitle(_translate("Form", "On open"))
-        self.cb_fold_imports.setToolTip(_translate("Form", "Fold imports statements when opening a python file."))
-        self.cb_fold_imports.setText(_translate("Form", "Fold imports"))
-        self.cb_fold_docstrings.setToolTip(_translate("Form", "Fold docstring when opening a python file."))
-        self.cb_fold_docstrings.setText(_translate("Form", "Fold docstrings"))
+        from hackedit.api.gettext import translation
+        _ = translation(package="hackedit-python")
+        Form.setWindowTitle(_("Form"))
+        self.groupBox.setTitle(_("On open"))
+        self.cb_fold_imports.setToolTip(_("Fold imports statements when opening a python file."))
+        self.cb_fold_imports.setText(_("Fold imports"))
+        self.cb_fold_docstrings.setToolTip(_("Fold docstring when opening a python file."))
+        self.cb_fold_docstrings.setText(_("Fold docstrings"))
 

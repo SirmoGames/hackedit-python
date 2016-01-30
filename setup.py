@@ -2,6 +2,7 @@
 """
 Setup script for hackedit-python
 """
+import os
 from setuptools import setup, find_packages
 
 import hackedit_python
@@ -13,15 +14,42 @@ import hackedit_python
 # pip).
 try:
     from pyqt_distutils.build_ui import build_ui
-    cmdclass = {'build_ui': build_ui}
 except ImportError:
     build_ui = None
-    cmdclass = {}
+
+# Babel commands for internationalisation and localisation
+try:
+    from babel.messages import frontend as babel
+except ImportError:
+    compile_catalog = None
+    extract_messages = None
+    init_catalog = None
+    update_catalog = None
+else:
+    compile_catalog = babel.compile_catalog
+    extract_messages = babel.extract_messages
+    init_catalog = babel.init_catalog
+    update_catalog = babel.update_catalog
 
 # get long description
 with open('README.rst', 'r') as readme:
     long_desc = readme.read()
 
+
+data_files = [('share/hackedit_python', ['data/share/extlibs.zip'])]
+# translations
+translations = [
+    ('share/locale/%s' % x[0].replace('data/locale/', ''),
+     list(map(lambda y: x[0]+'/'+y, x[2])))
+    for x in os.walk('data/locale/')
+]
+for dst, srclist in translations:
+    checked_srclist = []
+    for src in srclist:
+        if src.endswith('.mo'):
+            checked_srclist.append(src)
+    if checked_srclist:
+        data_files.append((dst, checked_srclist))
 
 # run setup
 setup(
@@ -36,7 +64,7 @@ setup(
     author_email='colin.duquesnoy@gmail.com',
     description='A set of plugins that add Python support to HackEdit',
     long_description=long_desc,
-    data_files=[('share/hackedit_python', ['data/share/extlibs.zip'])],
+    data_files=data_files,
     install_requires=['docutils'],
     entry_points={
         # our workspaces plugins (run script, ipython, rope,...)
@@ -71,7 +99,13 @@ setup(
             'PyCodeEditorPlugin = hackedit_python.editor:PyCodeEditorPlugin',
         ],
     },
-    cmdclass=cmdclass,
+    cmdclass={
+        'build_ui': build_ui,
+        'compile_catalog': compile_catalog,
+        'extract_messages': extract_messages,
+        'init_catalog': init_catalog,
+        'update_catalog': update_catalog
+    },
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: X11 Applications :: Qt',

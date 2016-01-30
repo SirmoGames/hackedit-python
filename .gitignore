@@ -40,10 +40,6 @@ htmlcov/
 nosetests.xml
 coverage.xml
 
-# Translations
-*.mo
-*.pot
-
 # Django stuff:
 *.log
 
@@ -66,5 +62,3 @@ win32/build
 
 # hackedit project files
 .hackedit
-
-

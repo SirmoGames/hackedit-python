@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/colin/Documents/HackEdit/hackedit_python/data/forms/dlg_rope_rename.ui'
+# Form implementation generated from reading ui file '/home/colin/dev/HackEdit/hackedit-python/data/forms/dlg_rope_rename.ui'
 #
-# Created by: PyQt5 UI code generator 5.4.2
+# Created by: PyQt5 UI code generator 5.5.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -35,7 +35,8 @@ class Ui_Dialog(object):
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
-        _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.label.setText(_translate("Dialog", "Rename %s and its usages to: "))
+        from hackedit.api.gettext import translation
+        _ = translation(package="hackedit-python")
+        Dialog.setWindowTitle(_("Dialog"))
+        self.label.setText(_("Rename %s and its usages to: "))
 
