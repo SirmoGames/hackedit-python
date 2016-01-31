@@ -33,14 +33,14 @@ class PyContextMenus(plugins.WorkspacePlugin):
         sep.setSeparator(True)
         api.window.add_tab_widget_context_menu_action(sep)
 
-        action = QtWidgets.QAction('Run', window)
-        action.setToolTip('Run active configuration.')
+        action = QtWidgets.QAction(_('Run'), window)
+        action.setToolTip(_('Run active configuration.'))
         action.triggered.connect(self._on_run_from_tab)
         action.setIcon(special_icons.run_icon())
         api.window.add_tab_widget_context_menu_action(action)
 
-        action = QtWidgets.QAction('Configure', window)
-        action.setToolTip('Change active configuration.')
+        action = QtWidgets.QAction0(_('Configure'), window)
+        action.setToolTip(_('Change active configuration.'))
         action.triggered.connect(self._on_configure_from_tab)
         action.setIcon(special_icons.configure_icon())
         api.window.add_tab_widget_context_menu_action(action)
@@ -51,8 +51,8 @@ class PyContextMenus(plugins.WorkspacePlugin):
         """
         insert_point = self._tree_view.context_menu.action_create_file
         # New module
-        self._action_new_module = QtWidgets.QAction('&Module', self._window)
-        self._action_new_module.setToolTip('Create a new python module')
+        self._action_new_module = QtWidgets.QAction(_('&Module'), self._window)
+        self._action_new_module.setToolTip(_('Create a new python module'))
         self._action_new_module.setIcon(
             api.widgets.FileIconProvider.mimetype_icon('file.py'))
         self._action_new_module.triggered.connect(
@@ -60,8 +60,9 @@ class PyContextMenus(plugins.WorkspacePlugin):
         self._tree_view.context_menu.menu_new.insertAction(
             insert_point, self._action_new_module)
         # New package
-        self._action_new_package = QtWidgets.QAction('&Package', self._window)
-        self._action_new_package.setToolTip('Create a new python package')
+        self._action_new_package = QtWidgets.QAction(_('&Package'),
+                                                     self._window)
+        self._action_new_package.setToolTip(_('Create a new python package'))
         self._action_new_package.setIcon(
             QtGui.QIcon.fromTheme('folder'))
         self._action_new_package.triggered.connect(
@@ -76,16 +77,16 @@ class PyContextMenus(plugins.WorkspacePlugin):
 
         insert_pt = self._tree_view.context_menu.menu_new.menuAction()
 
-        action = QtWidgets.QAction('Run file', self._window)
-        action.setToolTip('Automatically configure and run selected file.')
+        action = QtWidgets.QAction(_('Run file'), self._window)
+        action.setToolTip(_('Automatically configure and run selected file.'))
         action.setIcon(special_icons.run_icon())
         action.triggered.connect(self._on_run_file_triggered)
         self._tree_view.context_menu.insertAction(insert_pt, action)
         self.tv_action_run = action
 
-        action = QtWidgets.QAction('Configure file', self._window)
-        action.setToolTip('Create/edit run configuration for the '
-                          'selected file.')
+        action = QtWidgets.QAction(_('Configure file'), self._window)
+        action.setToolTip(_('Create/edit run configuration for the '
+                            'selected file.'))
         action.setIcon(special_icons.configure_icon())
         action.triggered.connect(self._on_configure_file_triggered)
         self._tree_view.context_menu.insertAction(insert_pt, action)
@@ -110,8 +111,8 @@ class PyContextMenus(plugins.WorkspacePlugin):
         if os.path.isfile(src):
             src = os.path.dirname(src)
         name, status = QtWidgets.QInputDialog.getText(
-            self._tree_view, 'Create new python module', 'Module name:',
-            QtWidgets.QLineEdit.Normal, 'my_module')
+            self._tree_view, _('Create new python module'), _('Module name:'),
+            QtWidgets.QLineEdit.Normal, _('my_module'))
         if status:
             if not os.path.splitext(name)[1]:
                 name += '.py'
@@ -125,8 +126,9 @@ class PyContextMenus(plugins.WorkspacePlugin):
         if os.path.isfile(src):
             src = os.path.dirname(src)
         name, status = QtWidgets.QInputDialog.getText(
-            self._tree_view, 'Create new python package', 'Package name:',
-            QtWidgets.QLineEdit.Normal, 'my_package')
+            self._tree_view, _('Create new python package'),
+            _('Package name:'),
+            QtWidgets.QLineEdit.Normal, _('my_package'))
         if status:
             path = os.path.join(src, name)
             os.makedirs(path)

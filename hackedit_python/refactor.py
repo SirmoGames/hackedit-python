@@ -29,11 +29,11 @@ class RefactoringErrorEvent(api.events.ExceptionEvent):
     def __init__(self, error):
         if error.critical:
             title = 'Rope error'
-            description = ('An error occured during refactoring...\n'
-                           'Exception: "%s"\n' % error.exc)
+            description = (_('An error occured during refactoring...\n'
+                             'Exception: "%s"\n') % error.exc)
         else:
-            title = 'Refactoring failed'
-            description = 'Reason: "%s"' % error.exc
+            title = _('Refactoring failed')
+            description = _('Reason: "%s"') % error.exc
         super().__init__(title, description, error.exc, tb=error.traceback)
         if not error.critical:
             self.level = api.events.WARNING
@@ -101,7 +101,7 @@ class PyRefactor(plugins.WorkspacePlugin):
         other_projects = self._get_other_projects()
         main_project = self._main_project
         self._preview = preview
-        api.tasks.start('Refactoring: rename', rename_symbol,
+        api.tasks.start(_('Refactoring: rename'), rename_symbol,
                         self._on_changes_available,
                         args=(
                             main_project, multiproj, other_projects,
@@ -118,7 +118,7 @@ class PyRefactor(plugins.WorkspacePlugin):
         project = self.get_project_for_file(file_path)
         if project:
             api.tasks.start(
-                'Refactoring: organize imports', organize_imports,
+                _('Refactoring: organize imports'), organize_imports,
                 self._on_changes_available,
                 args=(project, file_path),
                 cancellable=True, use_thread=True)
@@ -149,7 +149,7 @@ class PyRefactor(plugins.WorkspacePlugin):
         replacement = replacement
         self._preview = preview
         api.tasks.start(
-            'Refactoring: extract method', extract_method,
+            _('Refactoring: extract method'), extract_method,
             self._on_changes_available,
             args=(multiproj, main_project, other_projects, editor.file.path,
                   cursor_position_start, cursor_position_end, replacement),
@@ -180,7 +180,7 @@ class PyRefactor(plugins.WorkspacePlugin):
         replacement = replacement
         self._preview = preview
         api.tasks.start(
-            'Refactoring: extract variable', extract_variable,
+            _('Refactoring: extract variable'), extract_variable,
             self._on_changes_available,
             args=(multiproj, main_project, other_projects, editor.file.path,
                   cursor_position_start, cursor_position_end, replacement),
@@ -203,7 +203,7 @@ class PyRefactor(plugins.WorkspacePlugin):
         other_projects = self._get_other_projects(path_only=True)
         file_path = file_path
         api.tasks.start(
-            'Refactoring: find usages', find_usages,
+            _('Refactoring: find usages'), find_usages,
             self._on_find_usages_finished,
             args=(main_project, other_projects, file_path, offset),
             cancellable=True, use_thread=True)
@@ -267,13 +267,13 @@ class PyRefactor(plugins.WorkspacePlugin):
                 pass
             else:
                 items = [
-                    ('usages', 'Find usages', 'Alt+F7'),
-                    ('rename', 'Refactor: rename', 'Shift+F6'),
-                    ('extract_method', 'Refactor: extract method',
+                    ('usages', _('Find usages'), 'Alt+F7'),
+                    ('rename', _('Refactor: rename'), 'Shift+F6'),
+                    ('extract_method', _('Refactor: extract method'),
                      'Ctrl+Alt+M'),
-                    ('extract_var', 'Refactor: extract variable',
+                    ('extract_var', _('Refactor: extract variable'),
                      'Ctrl+Alt+V'),
-                    ('imports', 'Refactor: organize imports', 'Alt+F8')
+                    ('imports', _('Refactor: organize imports'), 'Alt+F8')
                 ]
                 for id, name, default in items:
                     actions[id].setShortcut(api.shortcuts.get(name, default))
@@ -286,51 +286,51 @@ class PyRefactor(plugins.WorkspacePlugin):
         main window and in the context menu of any python editor.
         """
         mnu_refactor = QtWidgets.QMenu(editor)
-        mnu_refactor.setTitle('Refactor')
+        mnu_refactor.setTitle(_('Refactor'))
         mnu_refactor.setIcon(QtGui.QIcon.fromTheme('edit-rename'))
 
-        action_find_usages = mnu_refactor.addAction('Find usages')
+        action_find_usages = mnu_refactor.addAction(_('Find usages'))
         action_find_usages.setToolTip(
-            'Find occurrences of symbol under cursor')
+            _('Find occurrences of symbol under cursor'))
         action_find_usages.setIcon(QtGui.QIcon.fromTheme('edit-find'))
         action_find_usages.setShortcut(
-            api.shortcuts.get('Find usages', 'Alt+F7'))
+            api.shortcuts.get(_('Find usages'), 'Alt+F7'))
         action_find_usages.triggered.connect(self.find_usages)
 
         # Rename
-        action_rename = mnu_refactor.addAction('Rename')
-        action_rename.setToolTip('Rename symnbol under cursor')
+        action_rename = mnu_refactor.addAction(_('Rename'))
+        action_rename.setToolTip(_('Rename symnbol under cursor'))
         action_rename.setIcon(QtGui.QIcon.fromTheme('edit-find-replace'))
         action_rename.setShortcut(
-            api.shortcuts.get('Refactor: rename', 'Shift+F6'))
+            api.shortcuts.get(_('Refactor: rename'), 'Shift+F6'))
         action_rename.triggered.connect(self.rename)
 
         # Extract variable
-        action_extract_var = mnu_refactor.addAction('Extract variable')
+        action_extract_var = mnu_refactor.addAction(_('Extract variable'))
         action_extract_var.setToolTip(
-            'Extract variable (a statement must be selected)')
+            _('Extract variable (a statement must be selected)'))
         action_extract_var.setIcon(special_icons.variable_icon())
         action_extract_var.setShortcut(
-            api.shortcuts.get('Refactor: extract variable', 'Ctrl+Alt+V'))
+            api.shortcuts.get(_('Refactor: extract variable'), 'Ctrl+Alt+V'))
         action_extract_var.triggered.connect(self.extract_variable)
 
         # Extract method
-        action_extract_method = mnu_refactor.addAction('Extract method')
+        action_extract_method = mnu_refactor.addAction(_('Extract method'))
         action_extract_method.setToolTip(
-            'Extract method (some statements must be selected)')
+            _('Extract method (some statements must be selected)'))
         action_extract_method.setIcon(special_icons.function_icon())
         action_extract_method.setShortcut(
-            api.shortcuts.get('Refactor: extract method', 'Ctrl+Alt+M'))
+            api.shortcuts.get(_('Refactor: extract method'), 'Ctrl+Alt+M'))
         action_extract_method.triggered.connect(self.extract_method)
 
         mnu_refactor.addSeparator()
 
-        action_organize_imports = mnu_refactor.addAction('Organize imports')
+        action_organize_imports = mnu_refactor.addAction(_('Organize imports'))
         action_organize_imports.setToolTip(
-            'Organize top level imports (sort, remove unused,...)')
+            _('Organize top level imports (sort, remove unused,...)'))
         action_organize_imports.setIcon(special_icons.namespace_icon())
         action_organize_imports.setShortcut(
-            api.shortcuts.get('Refactor: organize imports', 'Alt+F8'))
+            api.shortcuts.get(_('Refactor: organize imports'), 'Alt+F8'))
         action_organize_imports.triggered.connect(self.organise_imports)
 
         actions = {
@@ -444,7 +444,7 @@ class PyRefactor(plugins.WorkspacePlugin):
         buttons_layout.setContentsMargins(0, 0, 0, 0)
         # Close
         bt = QtWidgets.QPushButton()
-        bt.setText('Close')
+        bt.setText(_('Close'))
         bt.clicked.connect(self._remove_occurrences_dock)
         buttons_layout.addWidget(bt)
         # Spacer
@@ -506,12 +506,12 @@ class PyRefactor(plugins.WorkspacePlugin):
         buttons_layout = QtWidgets.QHBoxLayout()
         buttons_layout.setContentsMargins(0, 0, 0, 0)
         bt_refactor = bt = QtWidgets.QPushButton()
-        bt.setText('Refactor')
+        bt.setText(_('Refactor'))
         bt.clicked.connect(self._refactor)
         buttons_layout.addWidget(bt)
         # Close
         bt = QtWidgets.QPushButton()
-        bt.setText('Cancel')
+        bt.setText(_('Cancel'))
         bt.clicked.connect(self._remove_preview_dock)
         buttons_layout.addWidget(bt)
         # Spacer
@@ -547,7 +547,7 @@ class PyRefactor(plugins.WorkspacePlugin):
         main_project = self._main_project
         multiproj = self._has_multiple_projects()
         pending_changes = self._pending_changes
-        api.tasks.start('Refactoring: apply pending changes',
+        api.tasks.start(_('Refactoring: apply pending changes'),
                         apply_pending_changes, self._on_refactoring_finished,
                         args=(main_project, multiproj, pending_changes),
                         use_thread=True)
@@ -596,7 +596,7 @@ class PyRefactor(plugins.WorkspacePlugin):
         if project:
             if path.endswith('_rc.py'):
                 return
-            api.tasks.start('Refactoring: reporting changes',
+            api.tasks.start(_('Refactoring: reporting changes'),
                             report_changes, None,
                             args=(project, path, old_content),
                             use_thread=False)
@@ -640,10 +640,10 @@ class DlgRope(QtWidgets.QDialog):
         self.ui.setupUi(self)
         text = self.ui.label.text() % symbol_under_cursor
         self.ui.label.setText(text)
-        self.ui.buttonBox.button(self.ui.buttonBox.Apply).setText('Preview')
+        self.ui.buttonBox.button(self.ui.buttonBox.Apply).setText(_('Preview'))
         self.ui.buttonBox.button(self.ui.buttonBox.Apply).clicked.connect(
             self._preview)
-        self.ui.buttonBox.button(self.ui.buttonBox.Ok).setText('Refactor')
+        self.ui.buttonBox.button(self.ui.buttonBox.Ok).setText(_('Refactor'))
         self.ui.lineEdit.selectAll()
         self.ui.lineEdit.setFocus()
         self.ui.lineEdit.textChanged.connect(self._on_text_changed)

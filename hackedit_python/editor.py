@@ -195,7 +195,7 @@ class PyCodeEditorPlugin(plugins.EditorPlugin):
             pass
         else:
             m.action.setShortcut(api.shortcuts.get(
-                'Comment/Uncomment', 'Ctrl+/'))
+                _('Comment/Uncomment'), 'Ctrl+/'))
 
         try:
             m = editor.modes.get('GoToAssignmentsMode')
@@ -203,7 +203,7 @@ class PyCodeEditorPlugin(plugins.EditorPlugin):
             pass
         else:
             m.action_goto.setShortcut(api.shortcuts.get(
-                'Goto assignments', 'F7'))
+                _('Goto assignments'), 'F7'))
 
         try:
             m = editor.panels.get('QuickDocPanel')
@@ -211,7 +211,7 @@ class PyCodeEditorPlugin(plugins.EditorPlugin):
             pass
         else:
             m.action_quick_doc.setShortcut(api.shortcuts.get(
-                'Show documentation', 'Alt+Q'))
+                _('Show documentation'), 'Alt+Q'))
 
 
 class PyCodeEditorIntegration(plugins.WorkspacePlugin):

@@ -13,9 +13,9 @@ class AddImportMode(Mode):
     def on_state_changed(self, state):
         if self.action is None:
             self.action = QtWidgets.QAction(self.editor)
-            self.action.setText('Add import')
-            self.action.setToolTip('Add a new import statement at the top of '
-                                   'he imports zone.')
+            self.action.setText(_('Add import'))
+            self.action.setToolTip(_(
+                'Add a new import statement at the top of the imports zone.'))
             self.action.setShortcut('Alt+Return')
             self.action.triggered.connect(self._auto_import)
         if state:
@@ -31,7 +31,7 @@ class AddImportMode(Mode):
         else:
             import_stmt = ''
         import_stmt, status = QtWidgets.QInputDialog.getText(
-            self.editor, 'Add import', 'Complete import statement:',
+            self.editor, _('Add import'), _('Import statement:'),
             QtWidgets.QLineEdit.Normal, import_stmt)
         if status:
             sh = self.editor.syntax_highlighter
