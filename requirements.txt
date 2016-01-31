@@ -1,2 +1,4 @@
 hackedit
 docutils
+virtualenv
+rope_py3k
