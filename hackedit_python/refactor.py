@@ -281,7 +281,8 @@ class PyRefactor(plugins.WorkspacePlugin):
                      _('Refactor: organize imports'), 'Alt+F8')
                 ]
                 for id, name, text, default in items:
-                    actions[id].setShortcut(api.shortcuts.get(name, default))
+                    actions[id].setShortcut(api.shortcuts.get(
+                        name, text, default))
 
                 actions['extract_var'].setIcon(special_icons.variable_icon())
 
