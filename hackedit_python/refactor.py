@@ -409,7 +409,7 @@ class PyRefactor(plugins.WorkspacePlugin):
         self._occurrences_widget.setLayout(vlayout)
         # Dock widget
         self._occurrences_dock = api.window.add_dock_widget(
-            self._occurrences_widget, 'Find usages',
+            self._occurrences_widget, _('Find usages'),
             QtGui.QIcon.fromTheme('edit-find'),
             QtCore.Qt.BottomDockWidgetArea)
 
@@ -476,7 +476,7 @@ class PyRefactor(plugins.WorkspacePlugin):
 
         # Dock widget
         self._preview_dock = api.window.add_dock_widget(
-            self._review_widget, 'Review',
+            self._review_widget, _('Review'),
             QtGui.QIcon.fromTheme('edit-find'),
             QtCore.Qt.BottomDockWidgetArea)
         bt_refactor.setFocus()
@@ -673,7 +673,7 @@ class DlgRope(QtWidgets.QDialog):
                  has been canceled by the user).
         """
         dlg = cls(parent, symbol_under_cursor)
-        dlg.setWindowTitle('Rename')
+        dlg.setWindowTitle(_('Rename'))
         if dlg.exec_() == dlg.Accepted:
             return dlg.preview_changes, dlg.ui.lineEdit.text()
         return None, None
@@ -688,7 +688,7 @@ class DlgRope(QtWidgets.QDialog):
                  has been canceled by the user).
         """
         dlg = cls(parent, '')
-        dlg.setWindowTitle('Extract method')
+        dlg.setWindowTitle(_('Extract method'))
         dlg.ui.label.hide()
         if dlg.exec_() == dlg.Accepted:
             return dlg.preview_changes, dlg.ui.lineEdit.text()
@@ -704,7 +704,7 @@ class DlgRope(QtWidgets.QDialog):
                  has been canceled by the user).
         """
         dlg = cls(parent, '')
-        dlg.setWindowTitle('Extract variable')
+        dlg.setWindowTitle(_('Extract variable'))
         dlg.ui.label.hide()
         if dlg.exec_() == dlg.Accepted:
             return dlg.preview_changes, dlg.ui.lineEdit.text()
