@@ -3,6 +3,10 @@ This module contains the auto import mode that is set on the python editor.
 """
 from PyQt5 import QtWidgets
 from pyqode.core.api import Mode, TextHelper
+from hackedit import api
+
+
+_ = api.gettext.translation(package='hackedit-python')
 
 
 class AddImportMode(Mode):

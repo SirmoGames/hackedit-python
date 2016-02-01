@@ -21,6 +21,9 @@ from hackedit_python.editor import PyCodeEdit
 from hackedit_python.forms import dlg_rope_rename_ui
 
 
+_ = api.gettext.translation(package='hackedit-python')
+
+
 def _logger():
     return logging.getLogger(__name__)
 
@@ -28,7 +31,7 @@ def _logger():
 class RefactoringErrorEvent(api.events.ExceptionEvent):
     def __init__(self, error):
         if error.critical:
-            title = 'Rope error'
+            title = _('Rope error')
             description = (_('An error occured during refactoring...\n'
                              'Exception: "%s"\n') % error.exc)
         else:

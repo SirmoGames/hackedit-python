@@ -10,6 +10,9 @@ from rope.base.fscommands import FileSystemCommands
 from rope.base.project import Project
 
 
+_ = api.gettext.translation(package='hackedit-python')
+
+
 class PyOpenModule(api.plugins.WorkspacePlugin):
     """
     Open python module easiy (Ctrl+Shift+P)

@@ -8,6 +8,7 @@ import re
 import sys
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from hackedit import api
 from hackedit.api import plugins, system
 from hackedit.api.interpreters import InterpreterManager
 from hackedit.api.widgets import PreferencePage, DlgRunProcess
@@ -16,6 +17,9 @@ from hackedit_python.forms import settings_page_interpreters_ui, \
     dlg_create_virtualenv_ui
 from hackedit_python.system import detect_system_interpreters, \
     is_system_interpreter
+
+
+_ = api.gettext.translation(package='hackedit-python')
 
 
 class PythonManager(InterpreterManager):
@@ -56,7 +60,7 @@ class PageManageInterpreters(PreferencePage):
         self._ui = settings_page_interpreters_ui.Ui_Form()
         self._ui.setupUi(self)
         self._ui.progress_bar.hide()
-        self.setWindowTitle('Manage interpreters')
+        self.setWindowTitle(_('Manage interpreters'))
         self._setup_manage_actions()
         self._load_interpreters()
         self._connect_slots()

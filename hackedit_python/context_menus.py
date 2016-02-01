@@ -11,6 +11,9 @@ from hackedit.api import plugins, special_icons, interpreters, window
 from pyqode.core.widgets import FileSystemHelper
 
 
+_ = api.gettext.translation(package='hackedit-python')
+
+
 class PyContextMenus(plugins.WorkspacePlugin):
     """
     This plugins add some python specific actions to the project tree view
