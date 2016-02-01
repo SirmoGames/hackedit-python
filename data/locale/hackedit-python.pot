@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hackedit-python 1.0a2.dev0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 19:36+0100\n"
+"POT-Creation-Date: 2016-02-01 09:53+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,355 +18,371 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.2.0\n"
 
-#: hackedit_python/add_import.py:16 hackedit_python/add_import.py:34
+#: hackedit_python/add_import.py:20 hackedit_python/add_import.py:38
 msgid "Add import"
 msgstr ""
 
-#: hackedit_python/add_import.py:17
+#: hackedit_python/add_import.py:21
 msgid "Add a new import statement at the top of the imports zone."
 msgstr ""
 
-#: hackedit_python/add_import.py:34
+#: hackedit_python/add_import.py:38
 msgid "Import statement:"
 msgstr ""
 
-#: hackedit_python/clean_pyc.py:16
+#: hackedit_python/clean_pyc.py:19
 msgid "Clean *.pyc files"
 msgstr ""
 
-#: hackedit_python/clean_pyc.py:19
+#: hackedit_python/clean_pyc.py:22
 msgid "Removes *.pyc/__pycache__ for the active project"
 msgstr ""
 
-#: hackedit_python/clean_pyc.py:23
+#: hackedit_python/clean_pyc.py:26
 msgid "Cleaning *.pyc files"
 msgstr ""
 
-#: hackedit_python/context_menus.py:36
+#: hackedit_python/context_menus.py:39
 msgid "Run"
 msgstr ""
 
-#: hackedit_python/context_menus.py:37
+#: hackedit_python/context_menus.py:40
 msgid "Run active configuration."
 msgstr ""
 
-#: hackedit_python/context_menus.py:42
+#: hackedit_python/context_menus.py:45
 msgid "Configure"
 msgstr ""
 
-#: hackedit_python/context_menus.py:43
+#: hackedit_python/context_menus.py:46
 msgid "Change active configuration."
 msgstr ""
 
-#: hackedit_python/context_menus.py:54
+#: hackedit_python/context_menus.py:57
 msgid "&Module"
 msgstr ""
 
-#: hackedit_python/context_menus.py:55
+#: hackedit_python/context_menus.py:58
 msgid "Create a new python module"
 msgstr ""
 
-#: hackedit_python/context_menus.py:63
+#: hackedit_python/context_menus.py:66
 msgid "&Package"
 msgstr ""
 
-#: hackedit_python/context_menus.py:65
+#: hackedit_python/context_menus.py:68
 msgid "Create a new python package"
 msgstr ""
 
-#: hackedit_python/context_menus.py:80
+#: hackedit_python/context_menus.py:83
 msgid "Run file"
 msgstr ""
 
-#: hackedit_python/context_menus.py:81
+#: hackedit_python/context_menus.py:84
 msgid "Automatically configure and run selected file."
 msgstr ""
 
-#: hackedit_python/context_menus.py:87
+#: hackedit_python/context_menus.py:90
 msgid "Configure file"
 msgstr ""
 
-#: hackedit_python/context_menus.py:88
+#: hackedit_python/context_menus.py:91
 msgid "Create/edit run configuration for the selected file."
 msgstr ""
 
-#: hackedit_python/context_menus.py:114
+#: hackedit_python/context_menus.py:117
 msgid "Create new python module"
 msgstr ""
 
-#: hackedit_python/context_menus.py:114
+#: hackedit_python/context_menus.py:117
 msgid "Module name:"
 msgstr ""
 
-#: hackedit_python/context_menus.py:115
+#: hackedit_python/context_menus.py:118
 msgid "my_module"
 msgstr ""
 
-#: hackedit_python/context_menus.py:129
+#: hackedit_python/context_menus.py:132
 msgid "Create new python package"
 msgstr ""
 
-#: hackedit_python/context_menus.py:130
+#: hackedit_python/context_menus.py:133
 msgid "Package name:"
 msgstr ""
 
-#: hackedit_python/context_menus.py:131
+#: hackedit_python/context_menus.py:134
 msgid "my_package"
 msgstr ""
 
-#: hackedit_python/editor.py:198
+#: hackedit_python/editor.py:201
 msgid "Comment/Uncomment"
 msgstr ""
 
-#: hackedit_python/editor.py:206
+#: hackedit_python/editor.py:209
 msgid "Goto assignments"
 msgstr ""
 
-#: hackedit_python/editor.py:214
+#: hackedit_python/editor.py:217
 msgid "Show documentation"
 msgstr ""
 
-#: hackedit_python/interpreters.py:74 hackedit_python/interpreters.py:117
+#: hackedit_python/interpreters.py:63
+msgid "Manage interpreters"
+msgstr ""
+
+#: hackedit_python/interpreters.py:78 hackedit_python/interpreters.py:121
 msgid "Add local interpreter"
 msgstr ""
 
-#: hackedit_python/interpreters.py:76
+#: hackedit_python/interpreters.py:80
 msgid "Add a local/custom interpreter"
 msgstr ""
 
-#: hackedit_python/interpreters.py:80
+#: hackedit_python/interpreters.py:84
 msgid "Create virtualenv"
 msgstr ""
 
-#: hackedit_python/interpreters.py:82
+#: hackedit_python/interpreters.py:86
 msgid "Create a new virtual environment"
 msgstr ""
 
-#: hackedit_python/interpreters.py:89
+#: hackedit_python/interpreters.py:93
 msgid "Remove"
 msgstr ""
 
-#: hackedit_python/interpreters.py:91
+#: hackedit_python/interpreters.py:95
 msgid "Remove current interpreter"
 msgstr ""
 
-#: hackedit_python/interpreters.py:144
+#: hackedit_python/interpreters.py:148
 msgid "Remove interpreter"
 msgstr ""
 
-#: hackedit_python/interpreters.py:145
+#: hackedit_python/interpreters.py:149
 #, python-format
 msgid "Are you sure you want to remove %r?"
 msgstr ""
 
-#: hackedit_python/interpreters.py:156
+#: hackedit_python/interpreters.py:160
 msgid "Install packages"
 msgstr ""
 
-#: hackedit_python/interpreters.py:156
+#: hackedit_python/interpreters.py:160
 msgid "Packages: "
 msgstr ""
 
-#: hackedit_python/interpreters.py:165 hackedit_python/interpreters.py:198
-#: hackedit_python/interpreters.py:231
+#: hackedit_python/interpreters.py:169 hackedit_python/interpreters.py:202
+#: hackedit_python/interpreters.py:235
 msgid "No authentification program found"
 msgstr ""
 
-#: hackedit_python/interpreters.py:166
+#: hackedit_python/interpreters.py:170
 msgid ""
 "No authentification program found...\n"
 "\n"
 "Please install one of these tools: gksu or kdesu"
 msgstr ""
 
-#: hackedit_python/interpreters.py:189
+#: hackedit_python/interpreters.py:193
 msgid "Remove packages"
 msgstr ""
 
-#: hackedit_python/interpreters.py:199 hackedit_python/interpreters.py:232
+#: hackedit_python/interpreters.py:203 hackedit_python/interpreters.py:236
 msgid ""
 "No authentification program found...\n"
 "\n"
 "Please install one of those tools: gksu or kdesu"
 msgstr ""
 
-#: hackedit_python/interpreters.py:221
+#: hackedit_python/interpreters.py:225
 msgid "Update packages"
 msgstr ""
 
-#: hackedit_python/interpreters.py:222
+#: hackedit_python/interpreters.py:226
 msgid ""
 "Are you sure you want to update the following packages: \n"
 "\n"
 "  -"
 msgstr ""
 
-#: hackedit_python/interpreters.py:273
+#: hackedit_python/interpreters.py:277
 msgid "Failed to retrieve package list"
 msgstr ""
 
-#: hackedit_python/interpreters.py:275
+#: hackedit_python/interpreters.py:279
 #, python-format
 msgid "We could not retrieve the list of packages for %s.\n"
 msgstr ""
 
-#: hackedit_python/interpreters.py:317
+#: hackedit_python/interpreters.py:321
 msgid "unnamed"
 msgstr ""
 
-#: hackedit_python/interpreters.py:334
+#: hackedit_python/interpreters.py:338
 #: hackedit_python/forms/dlg_create_virtualenv_ui.py:84
 msgid "Choose directory"
 msgstr ""
 
-#: hackedit_python/interpreters.py:358
+#: hackedit_python/interpreters.py:362
 msgid "Path already exists"
 msgstr ""
 
-#: hackedit_python/open_module.py:18
+#: hackedit_python/ipython.py:57
+msgid "IPython console"
+msgstr ""
+
+#: hackedit_python/open_module.py:21
 msgid "&File"
 msgstr ""
 
-#: hackedit_python/open_module.py:24 hackedit_python/open_module.py:26
+#: hackedit_python/open_module.py:27 hackedit_python/open_module.py:29
 msgid "Open python module"
 msgstr ""
 
-#: hackedit_python/open_module.py:25
+#: hackedit_python/open_module.py:28
 msgid "Quicly open a python module"
 msgstr ""
 
-#: hackedit_python/open_module.py:35
+#: hackedit_python/open_module.py:38
 msgid "Open module"
 msgstr ""
 
-#: hackedit_python/open_module.py:35
+#: hackedit_python/open_module.py:38
 msgid "Python module:"
 msgstr ""
 
-#: hackedit_python/open_module.py:54
+#: hackedit_python/open_module.py:57
 msgid "Module not found"
 msgstr ""
 
-#: hackedit_python/open_module.py:55
+#: hackedit_python/open_module.py:58
 #, python-format
 msgid "Cannot open %r, module not found or not editable..."
 msgstr ""
 
-#: hackedit_python/refactor.py:32
+#: hackedit_python/refactor.py:34
+msgid "Rope error"
+msgstr ""
+
+#: hackedit_python/refactor.py:35
 #, python-format
 msgid ""
 "An error occured during refactoring...\n"
 "Exception: \"%s\"\n"
 msgstr ""
 
-#: hackedit_python/refactor.py:35
+#: hackedit_python/refactor.py:38
 msgid "Refactoring failed"
 msgstr ""
 
-#: hackedit_python/refactor.py:36
+#: hackedit_python/refactor.py:39
 #, python-format
 msgid "Reason: \"%s\""
 msgstr ""
 
-#: hackedit_python/refactor.py:104
+#: hackedit_python/refactor.py:107
 msgid "Refactoring: rename"
 msgstr ""
 
-#: hackedit_python/refactor.py:121
+#: hackedit_python/refactor.py:124
 msgid "Refactoring: organize imports"
 msgstr ""
 
-#: hackedit_python/refactor.py:152
+#: hackedit_python/refactor.py:155
 msgid "Refactoring: extract method"
 msgstr ""
 
-#: hackedit_python/refactor.py:183
+#: hackedit_python/refactor.py:186
 msgid "Refactoring: extract variable"
 msgstr ""
 
-#: hackedit_python/refactor.py:206
+#: hackedit_python/refactor.py:209
 msgid "Refactoring: find usages"
 msgstr ""
 
-#: hackedit_python/refactor.py:270 hackedit_python/refactor.py:292
-#: hackedit_python/refactor.py:297
+#: hackedit_python/refactor.py:273 hackedit_python/refactor.py:295
+#: hackedit_python/refactor.py:300 hackedit_python/refactor.py:412
 msgid "Find usages"
 msgstr ""
 
-#: hackedit_python/refactor.py:271 hackedit_python/refactor.py:305
+#: hackedit_python/refactor.py:274 hackedit_python/refactor.py:308
 msgid "Refactor: rename"
 msgstr ""
 
-#: hackedit_python/refactor.py:272 hackedit_python/refactor.py:323
+#: hackedit_python/refactor.py:275 hackedit_python/refactor.py:326
 msgid "Refactor: extract method"
 msgstr ""
 
-#: hackedit_python/refactor.py:274 hackedit_python/refactor.py:314
+#: hackedit_python/refactor.py:277 hackedit_python/refactor.py:317
 msgid "Refactor: extract variable"
 msgstr ""
 
-#: hackedit_python/refactor.py:276 hackedit_python/refactor.py:333
+#: hackedit_python/refactor.py:279 hackedit_python/refactor.py:336
 msgid "Refactor: organize imports"
 msgstr ""
 
-#: hackedit_python/refactor.py:289 hackedit_python/refactor.py:509
-#: hackedit_python/refactor.py:646
+#: hackedit_python/refactor.py:292 hackedit_python/refactor.py:512
+#: hackedit_python/refactor.py:649
 msgid "Refactor"
 msgstr ""
 
-#: hackedit_python/refactor.py:294
+#: hackedit_python/refactor.py:297
 msgid "Find occurrences of symbol under cursor"
 msgstr ""
 
-#: hackedit_python/refactor.py:301
+#: hackedit_python/refactor.py:304 hackedit_python/refactor.py:676
 msgid "Rename"
 msgstr ""
 
-#: hackedit_python/refactor.py:302
+#: hackedit_python/refactor.py:305
 msgid "Rename symnbol under cursor"
 msgstr ""
 
-#: hackedit_python/refactor.py:309
+#: hackedit_python/refactor.py:312 hackedit_python/refactor.py:707
 msgid "Extract variable"
 msgstr ""
 
-#: hackedit_python/refactor.py:311
+#: hackedit_python/refactor.py:314
 msgid "Extract variable (a statement must be selected)"
 msgstr ""
 
-#: hackedit_python/refactor.py:318
+#: hackedit_python/refactor.py:321 hackedit_python/refactor.py:691
 msgid "Extract method"
 msgstr ""
 
-#: hackedit_python/refactor.py:320
+#: hackedit_python/refactor.py:323
 msgid "Extract method (some statements must be selected)"
 msgstr ""
 
-#: hackedit_python/refactor.py:328
+#: hackedit_python/refactor.py:331
 msgid "Organize imports"
 msgstr ""
 
-#: hackedit_python/refactor.py:330
+#: hackedit_python/refactor.py:333
 msgid "Organize top level imports (sort, remove unused,...)"
 msgstr ""
 
-#: hackedit_python/refactor.py:447
+#: hackedit_python/refactor.py:450
 msgid "Close"
 msgstr ""
 
-#: hackedit_python/refactor.py:514
+#: hackedit_python/refactor.py:479
+msgid "Review"
+msgstr ""
+
+#: hackedit_python/refactor.py:517
 msgid "Cancel"
 msgstr ""
 
-#: hackedit_python/refactor.py:550
+#: hackedit_python/refactor.py:553
 msgid "Refactoring: apply pending changes"
 msgstr ""
 
-#: hackedit_python/refactor.py:599
+#: hackedit_python/refactor.py:602
 msgid "Refactoring: reporting changes"
 msgstr ""
 
-#: hackedit_python/refactor.py:643
+#: hackedit_python/refactor.py:646
 msgid "Preview"
 msgstr ""
 
