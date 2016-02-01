@@ -19,7 +19,7 @@ from hackedit_python.system import detect_system_interpreters, \
     is_system_interpreter
 
 
-_ = api.gettext.translation(package='hackedit-python')
+_ = api.gettext.get_translation(package='hackedit-python')
 
 
 class PythonManager(InterpreterManager):

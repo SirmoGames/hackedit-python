@@ -35,8 +35,8 @@ class Ui_Dialog(object):
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
-        from hackedit.api.gettext import translation
-        _ = translation(package="hackedit-python")
+        from hackedit.api.gettext import get_translation
+        _ = get_translation(package="hackedit-python")
         Dialog.setWindowTitle(_("Dialog"))
         self.label.setText(_("Rename %s and its usages to: "))
 

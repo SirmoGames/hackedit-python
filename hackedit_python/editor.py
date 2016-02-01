@@ -21,7 +21,7 @@ from hackedit_python.forms import settings_page_editor_ui
 from hackedit_python import pyqode_server as server
 
 
-_ = api.gettext.translation(package='hackedit-python')
+_ = api.gettext.get_translation(package='hackedit-python')
 
 
 # add pyw to the list of mime types

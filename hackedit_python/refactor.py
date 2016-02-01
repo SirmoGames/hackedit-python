@@ -21,7 +21,7 @@ from hackedit_python.editor import PyCodeEdit
 from hackedit_python.forms import dlg_rope_rename_ui
 
 
-_ = api.gettext.translation(package='hackedit-python')
+_ = api.gettext.get_translation(package='hackedit-python')
 
 
 def _logger():

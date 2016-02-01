@@ -6,7 +6,7 @@ from pyqode.core.api import Mode, TextHelper
 from hackedit import api
 
 
-_ = api.gettext.translation(package='hackedit-python')
+_ = api.gettext.get_translation(package='hackedit-python')
 
 
 class AddImportMode(Mode):

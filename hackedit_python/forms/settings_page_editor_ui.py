@@ -32,8 +32,8 @@ class Ui_Form(object):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
-        from hackedit.api.gettext import translation
-        _ = translation(package="hackedit-python")
+        from hackedit.api.gettext import get_translation
+        _ = get_translation(package="hackedit-python")
         Form.setWindowTitle(_("Form"))
         self.groupBox.setTitle(_("On open"))
         self.cb_fold_imports.setToolTip(_("Fold imports statements when opening a python file."))

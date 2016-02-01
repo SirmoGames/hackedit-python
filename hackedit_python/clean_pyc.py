@@ -6,7 +6,7 @@ from PyQt5 import QtGui
 from hackedit import api
 
 
-_ = api.gettext.translation(package='hackedit-python')
+_ = api.gettext.get_translation(package='hackedit-python')
 
 
 class CleanPycFiles(api.plugins.WorkspacePlugin):

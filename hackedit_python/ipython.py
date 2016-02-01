@@ -13,7 +13,7 @@ from hackedit.api import plugins, utils
 from pyqode.core.api import ColorScheme
 
 
-_ = api.gettext.translation(package='hackedit-python')
+_ = api.gettext.get_translation(package='hackedit-python')
 
 
 try:

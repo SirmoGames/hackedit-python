@@ -92,8 +92,8 @@ class Ui_Form(object):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
-        from hackedit.api.gettext import translation
-        _ = translation(package="hackedit-python")
+        from hackedit.api.gettext import get_translation
+        _ = get_translation(package="hackedit-python")
         Form.setWindowTitle(_("Form"))
         self.groupBox.setTitle(_("Default interpreter"))
         self.comboBox.setToolTip(_("Select the default interpreter that will be used when opening new projects."))

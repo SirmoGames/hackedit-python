@@ -74,8 +74,8 @@ class Ui_Dialog(object):
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
-        from hackedit.api.gettext import translation
-        _ = translation(package="hackedit-python")
+        from hackedit.api.gettext import get_translation
+        _ = get_translation(package="hackedit-python")
         Dialog.setWindowTitle(_("Create virtual environment"))
         self.label.setText(_("Name:"))
         self.edit_name.setToolTip(_("Name of the virtual environment"))

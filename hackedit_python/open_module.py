@@ -10,7 +10,7 @@ from rope.base.fscommands import FileSystemCommands
 from rope.base.project import Project
 
 
-_ = api.gettext.translation(package='hackedit-python')
+_ = api.gettext.get_translation(package='hackedit-python')
 
 
 class PyOpenModule(api.plugins.WorkspacePlugin):

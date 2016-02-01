@@ -11,7 +11,7 @@ from hackedit.api import plugins, special_icons, interpreters, window
 from pyqode.core.widgets import FileSystemHelper
 
 
-_ = api.gettext.translation(package='hackedit-python')
+_ = api.gettext.get_translation(package='hackedit-python')
 
 
 class PyContextMenus(plugins.WorkspacePlugin):
