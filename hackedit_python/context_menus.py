@@ -39,7 +39,7 @@ class PyContextMenus(plugins.WorkspacePlugin):
         action.setIcon(special_icons.run_icon())
         api.window.add_tab_widget_context_menu_action(action)
 
-        action = QtWidgets.QAction0(_('Configure'), window)
+        action = QtWidgets.QAction(_('Configure'), window)
         action.setToolTip(_('Change active configuration.'))
         action.triggered.connect(self._on_configure_from_tab)
         action.setIcon(special_icons.configure_icon())
