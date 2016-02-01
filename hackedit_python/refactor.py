@@ -270,15 +270,17 @@ class PyRefactor(plugins.WorkspacePlugin):
                 pass
             else:
                 items = [
-                    ('usages', _('Find usages'), 'Alt+F7'),
-                    ('rename', _('Refactor: rename'), 'Shift+F6'),
-                    ('extract_method', _('Refactor: extract method'),
-                     'Ctrl+Alt+M'),
-                    ('extract_var', _('Refactor: extract variable'),
-                     'Ctrl+Alt+V'),
-                    ('imports', _('Refactor: organize imports'), 'Alt+F8')
+                    ('usages', 'Find usages', _('Find usages'), 'Alt+F7'),
+                    ('rename', 'Refactor: rename', _('Refactor: rename'),
+                     'Shift+F6'),
+                    ('extract_method', 'Refactor: extract method',
+                     _('Refactor: extract method'), 'Ctrl+Alt+M'),
+                    ('extract_var', 'Refactor: extract variable',
+                     _('Refactor: extract variable'), 'Ctrl+Alt+V'),
+                    ('imports', 'Refactor: organize imports',
+                     _('Refactor: organize imports'), 'Alt+F8')
                 ]
-                for id, name, default in items:
+                for id, name, text, default in items:
                     actions[id].setShortcut(api.shortcuts.get(name, default))
 
                 actions['extract_var'].setIcon(special_icons.variable_icon())
@@ -297,7 +299,7 @@ class PyRefactor(plugins.WorkspacePlugin):
             _('Find occurrences of symbol under cursor'))
         action_find_usages.setIcon(QtGui.QIcon.fromTheme('edit-find'))
         action_find_usages.setShortcut(
-            api.shortcuts.get(_('Find usages'), 'Alt+F7'))
+            api.shortcuts.get('Find usages', _('Find usages'), 'Alt+F7'))
         action_find_usages.triggered.connect(self.find_usages)
 
         # Rename
@@ -305,7 +307,8 @@ class PyRefactor(plugins.WorkspacePlugin):
         action_rename.setToolTip(_('Rename symnbol under cursor'))
         action_rename.setIcon(QtGui.QIcon.fromTheme('edit-find-replace'))
         action_rename.setShortcut(
-            api.shortcuts.get(_('Refactor: rename'), 'Shift+F6'))
+            api.shortcuts.get('Refactor: rename', _('Refactor: rename'),
+                              'Shift+F6'))
         action_rename.triggered.connect(self.rename)
 
         # Extract variable
@@ -314,7 +317,8 @@ class PyRefactor(plugins.WorkspacePlugin):
             _('Extract variable (a statement must be selected)'))
         action_extract_var.setIcon(special_icons.variable_icon())
         action_extract_var.setShortcut(
-            api.shortcuts.get(_('Refactor: extract variable'), 'Ctrl+Alt+V'))
+            api.shortcuts.get('Refactor: extract variable',
+                              _('Refactor: extract variable'), 'Ctrl+Alt+V'))
         action_extract_var.triggered.connect(self.extract_variable)
 
         # Extract method
@@ -323,7 +327,8 @@ class PyRefactor(plugins.WorkspacePlugin):
             _('Extract method (some statements must be selected)'))
         action_extract_method.setIcon(special_icons.function_icon())
         action_extract_method.setShortcut(
-            api.shortcuts.get(_('Refactor: extract method'), 'Ctrl+Alt+M'))
+            api.shortcuts.get('Refactor: extract method',
+                              _('Refactor: extract method'), 'Ctrl+Alt+M'))
         action_extract_method.triggered.connect(self.extract_method)
 
         mnu_refactor.addSeparator()
@@ -333,7 +338,8 @@ class PyRefactor(plugins.WorkspacePlugin):
             _('Organize top level imports (sort, remove unused,...)'))
         action_organize_imports.setIcon(special_icons.namespace_icon())
         action_organize_imports.setShortcut(
-            api.shortcuts.get(_('Refactor: organize imports'), 'Alt+F8'))
+            api.shortcuts.get('Refactor: organize imports',
+                              _('Refactor: organize imports'), 'Alt+F8'))
         action_organize_imports.triggered.connect(self.organise_imports)
 
         actions = {

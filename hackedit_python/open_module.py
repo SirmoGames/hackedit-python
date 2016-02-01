@@ -26,8 +26,8 @@ class PyOpenModule(api.plugins.WorkspacePlugin):
                 api.widgets.FileIconProvider.mimetype_icon('file.py'),
                 _('Open python module'), mnu)
             action.setToolTip(_('Quicly open a python module'))
-            action.setShortcut(api.shortcuts.get(_('Open python module'),
-                                                 'Ctrl+Alt+O'))
+            action.setShortcut(api.shortcuts.get(
+                'Open python module', _('Open python module'), 'Ctrl+Alt+O'))
             action.setShortcutContext(QtCore.Qt.WindowShortcut)
             action.triggered.connect(self._open_module)
             mnu.insertAction(insert_point, action)
