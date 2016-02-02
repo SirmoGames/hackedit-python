@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hackedit-python 1.0a2.dev0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-01 09:53+0100\n"
+"POT-Creation-Date: 2016-02-01 18:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -235,7 +235,7 @@ msgstr ""
 msgid "&File"
 msgstr ""
 
-#: hackedit_python/open_module.py:27 hackedit_python/open_module.py:29
+#: hackedit_python/open_module.py:27 hackedit_python/open_module.py:30
 msgid "Open python module"
 msgstr ""
 
@@ -300,89 +300,89 @@ msgstr ""
 msgid "Refactoring: find usages"
 msgstr ""
 
-#: hackedit_python/refactor.py:273 hackedit_python/refactor.py:295
-#: hackedit_python/refactor.py:300 hackedit_python/refactor.py:412
+#: hackedit_python/refactor.py:273 hackedit_python/refactor.py:298
+#: hackedit_python/refactor.py:303 hackedit_python/refactor.py:419
 msgid "Find usages"
 msgstr ""
 
-#: hackedit_python/refactor.py:274 hackedit_python/refactor.py:308
+#: hackedit_python/refactor.py:274 hackedit_python/refactor.py:311
 msgid "Refactor: rename"
 msgstr ""
 
-#: hackedit_python/refactor.py:275 hackedit_python/refactor.py:326
+#: hackedit_python/refactor.py:277 hackedit_python/refactor.py:332
 msgid "Refactor: extract method"
 msgstr ""
 
-#: hackedit_python/refactor.py:277 hackedit_python/refactor.py:317
+#: hackedit_python/refactor.py:279 hackedit_python/refactor.py:322
 msgid "Refactor: extract variable"
 msgstr ""
 
-#: hackedit_python/refactor.py:279 hackedit_python/refactor.py:336
+#: hackedit_python/refactor.py:281 hackedit_python/refactor.py:343
 msgid "Refactor: organize imports"
 msgstr ""
 
-#: hackedit_python/refactor.py:292 hackedit_python/refactor.py:512
-#: hackedit_python/refactor.py:649
+#: hackedit_python/refactor.py:295 hackedit_python/refactor.py:519
+#: hackedit_python/refactor.py:656
 msgid "Refactor"
 msgstr ""
 
-#: hackedit_python/refactor.py:297
+#: hackedit_python/refactor.py:300
 msgid "Find occurrences of symbol under cursor"
 msgstr ""
 
-#: hackedit_python/refactor.py:304 hackedit_python/refactor.py:676
+#: hackedit_python/refactor.py:307 hackedit_python/refactor.py:683
 msgid "Rename"
 msgstr ""
 
-#: hackedit_python/refactor.py:305
+#: hackedit_python/refactor.py:308
 msgid "Rename symnbol under cursor"
 msgstr ""
 
-#: hackedit_python/refactor.py:312 hackedit_python/refactor.py:707
+#: hackedit_python/refactor.py:316 hackedit_python/refactor.py:714
 msgid "Extract variable"
 msgstr ""
 
-#: hackedit_python/refactor.py:314
+#: hackedit_python/refactor.py:318
 msgid "Extract variable (a statement must be selected)"
 msgstr ""
 
-#: hackedit_python/refactor.py:321 hackedit_python/refactor.py:691
+#: hackedit_python/refactor.py:326 hackedit_python/refactor.py:698
 msgid "Extract method"
 msgstr ""
 
-#: hackedit_python/refactor.py:323
+#: hackedit_python/refactor.py:328
 msgid "Extract method (some statements must be selected)"
 msgstr ""
 
-#: hackedit_python/refactor.py:331
+#: hackedit_python/refactor.py:337
 msgid "Organize imports"
 msgstr ""
 
-#: hackedit_python/refactor.py:333
+#: hackedit_python/refactor.py:339
 msgid "Organize top level imports (sort, remove unused,...)"
 msgstr ""
 
-#: hackedit_python/refactor.py:450
+#: hackedit_python/refactor.py:457
 msgid "Close"
 msgstr ""
 
-#: hackedit_python/refactor.py:479
+#: hackedit_python/refactor.py:486
 msgid "Review"
 msgstr ""
 
-#: hackedit_python/refactor.py:517
+#: hackedit_python/refactor.py:524
 msgid "Cancel"
 msgstr ""
 
-#: hackedit_python/refactor.py:553
+#: hackedit_python/refactor.py:560
 msgid "Refactoring: apply pending changes"
 msgstr ""
 
-#: hackedit_python/refactor.py:602
+#: hackedit_python/refactor.py:609
 msgid "Refactoring: reporting changes"
 msgstr ""
 
-#: hackedit_python/refactor.py:646
+#: hackedit_python/refactor.py:653
 msgid "Preview"
 msgstr ""
 
