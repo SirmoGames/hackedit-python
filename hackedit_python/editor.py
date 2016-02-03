@@ -21,6 +21,9 @@ from hackedit_python.forms import settings_page_editor_ui
 from hackedit_python import pyqode_server as server
 
 
+_ = api.gettext.get_translation(package='hackedit-python')
+
+
 # add pyw to the list of mime types
 mimetypes.add_type('text/x-python', '.pyw')
 
@@ -30,7 +33,7 @@ def _logger():
 
 
 def _get_backend_libs_path():
-    return os.environ['HACKEDIT_LIBS_PATH']
+    return os.environ['HACKEDIT_EXTLIBS_PATH']
 
 
 class DisplayEditor(PyCodeEditBase):
@@ -195,7 +198,7 @@ class PyCodeEditorPlugin(plugins.EditorPlugin):
             pass
         else:
             m.action.setShortcut(api.shortcuts.get(
-                'Comment/Uncomment', 'Ctrl+/'))
+                'Comment/Uncomment', _('Comment/Uncomment'), 'Ctrl+/'))
 
         try:
             m = editor.modes.get('GoToAssignmentsMode')
@@ -203,7 +206,7 @@ class PyCodeEditorPlugin(plugins.EditorPlugin):
             pass
         else:
             m.action_goto.setShortcut(api.shortcuts.get(
-                'Goto assignments', 'F7'))
+                'Goto assignments', _('Goto assignments'), 'F7'))
 
         try:
             m = editor.panels.get('QuickDocPanel')
@@ -211,7 +214,7 @@ class PyCodeEditorPlugin(plugins.EditorPlugin):
             pass
         else:
             m.action_quick_doc.setShortcut(api.shortcuts.get(
-                'Show documentation', 'Alt+Q'))
+                'Show documentation', _('Show documentation'), 'Alt+Q'))
 
 
 class PyCodeEditorIntegration(plugins.WorkspacePlugin):

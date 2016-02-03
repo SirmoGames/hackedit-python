@@ -10,21 +10,24 @@ from rope.base.fscommands import FileSystemCommands
 from rope.base.project import Project
 
 
+_ = api.gettext.get_translation(package='hackedit-python')
+
+
 class PyOpenModule(api.plugins.WorkspacePlugin):
     """
     Open python module easiy (Ctrl+Shift+P)
     """
     def activate(self):
-        mnu = api.window.get_menu('&File')
+        mnu = api.window.get_menu(_('&File'))
         assert isinstance(mnu, QtWidgets.QMenu)
         insert_point = self._window._ui.action_open
         if insert_point:
             action = QtWidgets.QAction(
                 api.widgets.FileIconProvider.mimetype_icon('file.py'),
-                'Open python module', mnu)
-            action.setToolTip('Quicly open a python module')
-            action.setShortcut(api.shortcuts.get('Open python module',
-                                                 'Ctrl+Alt+O'))
+                _('Open python module'), mnu)
+            action.setToolTip(_('Quicly open a python module'))
+            action.setShortcut(api.shortcuts.get(
+                'Open python module', _('Open python module'), 'Ctrl+Alt+O'))
             action.setShortcutContext(QtCore.Qt.WindowShortcut)
             action.triggered.connect(self._open_module)
             mnu.insertAction(insert_point, action)
@@ -32,7 +35,7 @@ class PyOpenModule(api.plugins.WorkspacePlugin):
 
     def _open_module(self):
         name, status = QtWidgets.QInputDialog.getText(
-            self._window, 'Open module', 'Python module:')
+            self._window, _('Open module'), _('Python module:'))
         if status:
             project = Project(api.project.get_current_project(),
                               ropefolder=api.project.FOLDER,
@@ -51,5 +54,6 @@ class PyOpenModule(api.plugins.WorkspacePlugin):
                         api.editor.open_file(path)
                         return
             QtWidgets.QMessageBox.information(
-                self._window, 'Module not found',
-                'Cannot open %r, module not found or not editable...' % name)
+                self._window, _('Module not found'),
+                _('Cannot open %r, module not found or not editable...') %
+                name)

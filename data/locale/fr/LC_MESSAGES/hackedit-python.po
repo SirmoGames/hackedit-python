@@ -1,0 +1,184 @@
+# French translations for hackedit-python.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the hackedit-python
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: hackedit-python 1.0a2.dev0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-01-30 19:21+0100\n"
+"PO-Revision-Date: 2016-01-30 19:22+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+
+#: hackedit_python/forms/dlg_create_virtualenv_ui.py:79
+msgid "Create virtual environment"
+msgstr ""
+
+#: hackedit_python/forms/dlg_create_virtualenv_ui.py:80
+msgid "Name:"
+msgstr ""
+
+#: hackedit_python/forms/dlg_create_virtualenv_ui.py:81
+msgid "Name of the virtual environment"
+msgstr ""
+
+#: hackedit_python/forms/dlg_create_virtualenv_ui.py:82
+msgid "Directory:"
+msgstr ""
+
+#: hackedit_python/forms/dlg_create_virtualenv_ui.py:83
+msgid "Path where to create the virtual env."
+msgstr ""
+
+#: hackedit_python/forms/dlg_create_virtualenv_ui.py:84
+msgid "Choose directory"
+msgstr ""
+
+#: hackedit_python/forms/dlg_create_virtualenv_ui.py:85
+#: hackedit_python/forms/dlg_edit_breakpoints_ui.py:121
+msgid "..."
+msgstr ""
+
+#: hackedit_python/forms/dlg_create_virtualenv_ui.py:86
+msgid "Fullpath:"
+msgstr ""
+
+#: hackedit_python/forms/dlg_create_virtualenv_ui.py:87
+msgid "Full path (Directory + Name)"
+msgstr ""
+
+#: hackedit_python/forms/dlg_create_virtualenv_ui.py:88
+msgid "path"
+msgstr ""
+
+#: hackedit_python/forms/dlg_create_virtualenv_ui.py:89
+msgid "Base interpreter:"
+msgstr ""
+
+#: hackedit_python/forms/dlg_create_virtualenv_ui.py:90
+msgid "Choose the base interpreter to use to create the virtual environment."
+msgstr ""
+
+#: hackedit_python/forms/dlg_create_virtualenv_ui.py:91
+#: hackedit_python/forms/dlg_create_virtualenv_ui.py:92
+msgid "Inherit global site-packages"
+msgstr ""
+
+#: hackedit_python/forms/dlg_edit_breakpoints_ui.py:119
+msgid "Edit breakpoints"
+msgstr ""
+
+#: hackedit_python/forms/dlg_edit_breakpoints_ui.py:120
+msgid "Breakpoints"
+msgstr ""
+
+#: hackedit_python/forms/dlg_edit_breakpoints_ui.py:122
+msgid "Properties"
+msgstr ""
+
+#: hackedit_python/forms/dlg_edit_breakpoints_ui.py:123
+msgid "Enabled"
+msgstr ""
+
+#: hackedit_python/forms/dlg_edit_breakpoints_ui.py:124
+msgid "Condition:"
+msgstr ""
+
+#: hackedit_python/forms/dlg_edit_breakpoints_ui.py:125
+msgid ""
+"True to suspend program when the debugger hits the breakpoint. False to "
+"continue."
+msgstr ""
+
+#: hackedit_python/forms/dlg_edit_breakpoints_ui.py:126
+msgid "Suspend"
+msgstr ""
+
+#: hackedit_python/forms/dlg_edit_breakpoints_ui.py:127
+msgid "Log message to console"
+msgstr ""
+
+#: hackedit_python/forms/dlg_edit_breakpoints_ui.py:128
+msgid "Log evaluated expression:"
+msgstr ""
+
+#: hackedit_python/forms/dlg_rope_rename_ui.py:40
+msgid "Dialog"
+msgstr ""
+
+#: hackedit_python/forms/dlg_rope_rename_ui.py:41
+#, python-format
+msgid "Rename %s and its usages to: "
+msgstr ""
+
+#: hackedit_python/forms/settings_page_editor_ui.py:37
+#: hackedit_python/forms/settings_page_interpreters_ui.py:97
+msgid "Form"
+msgstr ""
+
+#: hackedit_python/forms/settings_page_editor_ui.py:38
+msgid "On open"
+msgstr ""
+
+#: hackedit_python/forms/settings_page_editor_ui.py:39
+msgid "Fold imports statements when opening a python file."
+msgstr ""
+
+#: hackedit_python/forms/settings_page_editor_ui.py:40
+msgid "Fold imports"
+msgstr ""
+
+#: hackedit_python/forms/settings_page_editor_ui.py:41
+msgid "Fold docstring when opening a python file."
+msgstr ""
+
+#: hackedit_python/forms/settings_page_editor_ui.py:42
+msgid "Fold docstrings"
+msgstr ""
+
+#: hackedit_python/forms/settings_page_interpreters_ui.py:98
+msgid "Default interpreter"
+msgstr ""
+
+#: hackedit_python/forms/settings_page_interpreters_ui.py:99
+msgid ""
+"Select the default interpreter that will be used when opening new "
+"projects."
+msgstr ""
+
+#: hackedit_python/forms/settings_page_interpreters_ui.py:100
+msgid "Manage python interpreters"
+msgstr "Gérer les interpreteurs python"
+
+#: hackedit_python/forms/settings_page_interpreters_ui.py:101
+msgid "Manage  "
+msgstr "Gérer"
+
+#: hackedit_python/forms/settings_page_interpreters_ui.py:102
+msgid "Packages"
+msgstr ""
+
+#: hackedit_python/forms/settings_page_interpreters_ui.py:103
+msgid "The list of installed package for the selected interpreter."
+msgstr ""
+
+#: hackedit_python/forms/settings_page_interpreters_ui.py:105
+msgid "Install one or more packages"
+msgstr ""
+
+#: hackedit_python/forms/settings_page_interpreters_ui.py:106
+msgid "Uninstall selected package"
+msgstr ""
+
+#: hackedit_python/forms/settings_page_interpreters_ui.py:107
+msgid "Update selected package"
+msgstr ""

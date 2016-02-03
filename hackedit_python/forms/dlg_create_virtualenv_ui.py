@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/colin/Documents/hackedit_python/data/forms/dlg_create_virtualenv.ui'
+# Form implementation generated from reading ui file '/home/colin/dev/HackEdit/hackedit-python/data/forms/dlg_create_virtualenv.ui'
 #
-# Created by: PyQt5 UI code generator 5.4.2
+# Created by: PyQt5 UI code generator 5.5.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -74,20 +74,21 @@ class Ui_Dialog(object):
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
-        _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Create virtual environment"))
-        self.label.setText(_translate("Dialog", "Name:"))
-        self.edit_name.setToolTip(_translate("Dialog", "Name of the virtual environment"))
-        self.label_2.setText(_translate("Dialog", "Directory:"))
-        self.edit_dir.setToolTip(_translate("Dialog", "Path where to create the virtual env."))
-        self.bt_dir.setToolTip(_translate("Dialog", "Choose directory"))
-        self.bt_dir.setText(_translate("Dialog", "..."))
-        self.label_4.setText(_translate("Dialog", "Fullpath:"))
-        self.label_full_path.setToolTip(_translate("Dialog", "Full path (Directory + Name)"))
-        self.label_full_path.setText(_translate("Dialog", "path"))
-        self.label_3.setText(_translate("Dialog", "Base interpreter:"))
-        self.combo_interpreters.setToolTip(_translate("Dialog", "Choose the base interpreter to use to create the virtual environment."))
-        self.check_box_site_packages.setToolTip(_translate("Dialog", "Inherit global site-packages"))
-        self.check_box_site_packages.setText(_translate("Dialog", "Inherit global site-packages"))
+        from hackedit.api.gettext import get_translation
+        _ = get_translation(package="hackedit-python")
+        Dialog.setWindowTitle(_("Create virtual environment"))
+        self.label.setText(_("Name:"))
+        self.edit_name.setToolTip(_("Name of the virtual environment"))
+        self.label_2.setText(_("Directory:"))
+        self.edit_dir.setToolTip(_("Path where to create the virtual env."))
+        self.bt_dir.setToolTip(_("Choose directory"))
+        self.bt_dir.setText(_("..."))
+        self.label_4.setText(_("Fullpath:"))
+        self.label_full_path.setToolTip(_("Full path (Directory + Name)"))
+        self.label_full_path.setText(_("path"))
+        self.label_3.setText(_("Base interpreter:"))
+        self.combo_interpreters.setToolTip(_("Choose the base interpreter to use to create the virtual environment."))
+        self.check_box_site_packages.setToolTip(_("Inherit global site-packages"))
+        self.check_box_site_packages.setText(_("Inherit global site-packages"))
 
 from . import hackedit_python_rc

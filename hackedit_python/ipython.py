@@ -13,6 +13,9 @@ from hackedit.api import plugins, utils
 from pyqode.core.api import ColorScheme
 
 
+_ = api.gettext.get_translation(package='hackedit-python')
+
+
 try:
     from PyQt5 import QtSvg
 except ImportError:
@@ -51,7 +54,7 @@ class IPythonConsole(plugins.WorkspacePlugin):
         else:
             icon = QtGui.QIcon(':/icons/ipython.png')
         dock = api.window.add_dock_widget(
-            self._control, 'IPython console', icon,
+            self._control, _('IPython console'), icon,
             QtCore.Qt.BottomDockWidgetArea)
         dock.hide()
         dock.visibilityChanged.connect(self._on_visiblity_changed)

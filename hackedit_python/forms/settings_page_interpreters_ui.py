@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/colin/Documents/hackedit_python/data/forms/settings_page_interpreters.ui'
+# Form implementation generated from reading ui file '/home/colin/dev/HackEdit/hackedit-python/data/forms/settings_page_interpreters.ui'
 #
 # Created by: PyQt5 UI code generator 5.5.1
 #
@@ -92,16 +92,17 @@ class Ui_Form(object):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
-        _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.groupBox.setTitle(_translate("Form", "Default interpreter"))
-        self.comboBox.setToolTip(_translate("Form", "Select the default interpreter that will be used when opening new projects."))
-        self.bt_manage_interpreters.setToolTip(_translate("Form", "Manage python interpreters"))
-        self.bt_manage_interpreters.setText(_translate("Form", "Manage  "))
-        self.groupBox_2.setTitle(_translate("Form", "Packages"))
-        self.tableWidget.setToolTip(_translate("Form", "The list of installed package for the selected interpreter."))
+        from hackedit.api.gettext import get_translation
+        _ = get_translation(package="hackedit-python")
+        Form.setWindowTitle(_("Form"))
+        self.groupBox.setTitle(_("Default interpreter"))
+        self.comboBox.setToolTip(_("Select the default interpreter that will be used when opening new projects."))
+        self.bt_manage_interpreters.setToolTip(_("Manage python interpreters"))
+        self.bt_manage_interpreters.setText(_("Manage  "))
+        self.groupBox_2.setTitle(_("Packages"))
+        self.tableWidget.setToolTip(_("The list of installed package for the selected interpreter."))
         self.tableWidget.setSortingEnabled(True)
-        self.bt_add_packages.setToolTip(_translate("Form", "Install one or more packages"))
-        self.bt_rm_package.setToolTip(_translate("Form", "Uninstall selected package"))
-        self.bt_update_package.setToolTip(_translate("Form", "Update selected package"))
+        self.bt_add_packages.setToolTip(_("Install one or more packages"))
+        self.bt_rm_package.setToolTip(_("Uninstall selected package"))
+        self.bt_update_package.setToolTip(_("Update selected package"))
 
