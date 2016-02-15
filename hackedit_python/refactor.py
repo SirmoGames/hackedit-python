@@ -97,7 +97,7 @@ class PyRefactor(plugins.WorkspacePlugin):
         if not renamer.get_old_name():
             return
         preview, replacement = DlgRope.rename(
-            self.window, renamer.get_old_name())
+            self.main_window, renamer.get_old_name())
         if preview is None and replacement is None:
             return
         multiproj = self._has_multiple_projects()
@@ -141,7 +141,7 @@ class PyRefactor(plugins.WorkspacePlugin):
             TextHelper(editor).select_whole_line()
         start = self._get_real_position(editor.textCursor().selectionStart())
         end = self._get_real_position(editor.textCursor().selectionEnd())
-        preview, replacement = DlgRope.extract_method(self.window)
+        preview, replacement = DlgRope.extract_method(self.main_window)
         if preview is None and replacement is None:
             return
         multiproj = self._has_multiple_projects()
@@ -172,7 +172,7 @@ class PyRefactor(plugins.WorkspacePlugin):
             TextHelper(editor).select_whole_line()
         start = self._get_real_position(editor.textCursor().selectionStart())
         end = self._get_real_position(editor.textCursor().selectionEnd())
-        preview, replacement = DlgRope.extract_variable(self.window)
+        preview, replacement = DlgRope.extract_variable(self.main_window)
         if preview is None and replacement is None:
             return
         multiproj = self._has_multiple_projects()

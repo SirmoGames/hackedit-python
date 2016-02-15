@@ -219,9 +219,9 @@ class PyCodeEditorPlugin(plugins.EditorPlugin):
 
 class PyCodeEditorIntegration(plugins.WorkspacePlugin):
     def activate(self):
-        plugins.WorkspacePlugin.__init__(self, self.window)
-        self.window.editor_loaded.connect(self._on_tab_created)
-        self.window.about_to_open_tab.connect(self._set_backend_options)
+        plugins.WorkspacePlugin.__init__(self, self.main_window)
+        self.main_window.editor_loaded.connect(self._on_tab_created)
+        self.main_window.about_to_open_tab.connect(self._set_backend_options)
 
     def _on_tab_created(self, tab):
         if isinstance(tab, PyCodeEdit):

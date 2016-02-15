@@ -20,7 +20,7 @@ class PyOpenModule(api.plugins.WorkspacePlugin):
     def activate(self):
         mnu = api.window.get_menu(_('&File'))
         assert isinstance(mnu, QtWidgets.QMenu)
-        insert_point = self.window._ui.action_open
+        insert_point = self.main_window._ui.action_open
         if insert_point:
             action = QtWidgets.QAction(
                 api.widgets.FileIconProvider.mimetype_icon('file.py'),
@@ -35,7 +35,7 @@ class PyOpenModule(api.plugins.WorkspacePlugin):
 
     def _open_module(self):
         name, status = QtWidgets.QInputDialog.getText(
-            self.window, _('Open module'), _('Python module:'))
+            self.main_window, _('Open module'), _('Python module:'))
         if status:
             project = Project(api.project.get_current_project(),
                               ropefolder=api.project.FOLDER,
@@ -54,6 +54,6 @@ class PyOpenModule(api.plugins.WorkspacePlugin):
                         api.editor.open_file(path)
                         return
             QtWidgets.QMessageBox.information(
-                self.window, _('Module not found'),
+                self.main_window, _('Module not found'),
                 _('Cannot open %r, module not found or not editable...') %
                 name)

@@ -32,7 +32,7 @@ class PyContextMenus(plugins.WorkspacePlugin):
         """
         Setup tab bar context menu
         """
-        sep = QtWidgets.QAction(self.window)
+        sep = QtWidgets.QAction(self.main_window)
         sep.setSeparator(True)
         api.window.add_tab_widget_context_menu_action(sep)
 
@@ -54,7 +54,8 @@ class PyContextMenus(plugins.WorkspacePlugin):
         """
         insert_point = self._tree_view.context_menu.action_create_file
         # New module
-        self._action_new_module = QtWidgets.QAction(_('&Module'), self.window)
+        self._action_new_module = QtWidgets.QAction(_('&Module'),
+                                                    self.main_window)
         self._action_new_module.setToolTip(_('Create a new python module'))
         self._action_new_module.setIcon(
             api.widgets.FileIconProvider.mimetype_icon('file.py'))
@@ -64,7 +65,7 @@ class PyContextMenus(plugins.WorkspacePlugin):
             insert_point, self._action_new_module)
         # New package
         self._action_new_package = QtWidgets.QAction(_('&Package'),
-                                                     self.window)
+                                                     self.main_window)
         self._action_new_package.setToolTip(_('Create a new python package'))
         self._action_new_package.setIcon(
             QtGui.QIcon.fromTheme('folder'))
@@ -73,21 +74,21 @@ class PyContextMenus(plugins.WorkspacePlugin):
         self._tree_view.context_menu.menu_new.insertAction(
             insert_point, self._action_new_package)
         # separator with the regular entries
-        separator = QtWidgets.QAction(self.window)
+        separator = QtWidgets.QAction(self.main_window)
         separator.setSeparator(True)
         self._tree_view.context_menu.menu_new.insertAction(
             insert_point, separator)
 
         insert_pt = self._tree_view.context_menu.menu_new.menuAction()
 
-        action = QtWidgets.QAction(_('Run file'), self.window)
+        action = QtWidgets.QAction(_('Run file'), self.main_window)
         action.setToolTip(_('Automatically configure and run selected file.'))
         action.setIcon(special_icons.run_icon())
         action.triggered.connect(self._on_run_file_triggered)
         self._tree_view.context_menu.insertAction(insert_pt, action)
         self.tv_action_run = action
 
-        action = QtWidgets.QAction(_('Configure file'), self.window)
+        action = QtWidgets.QAction(_('Configure file'), self.main_window)
         action.setToolTip(_('Create/edit run configuration for the '
                             'selected file.'))
         action.setIcon(special_icons.configure_icon())
@@ -95,7 +96,7 @@ class PyContextMenus(plugins.WorkspacePlugin):
         self._tree_view.context_menu.insertAction(insert_pt, action)
         self.tv_action_configure = action
 
-        separator = QtWidgets.QAction(self.window)
+        separator = QtWidgets.QAction(self.main_window)
         separator.setSeparator(True)
         self._tree_view.context_menu.insertAction(insert_pt, separator)
         self.tv_action_sep = separator
