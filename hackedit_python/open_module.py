@@ -20,7 +20,7 @@ class PyOpenModule(api.plugins.WorkspacePlugin):
     def activate(self):
         mnu = api.window.get_menu(_('&File'))
         assert isinstance(mnu, QtWidgets.QMenu)
-        insert_point = api.window.get_main_window_ui()._ui.action_open
+        insert_point = api.window.get_main_window_ui().action_open
         if insert_point:
             action = QtWidgets.QAction(
                 api.widgets.FileIconProvider.mimetype_icon('file.py'),
