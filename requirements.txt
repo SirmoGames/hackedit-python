@@ -1,4 +1,4 @@
 hackedit
 docutils
 virtualenv
-rope_py3k
+-e git://github.com/python-rope/rope.git@devel#egg=rope

@@ -4,6 +4,5 @@ include LICENSE
 recursive-include data *.png
 recursive-include data *.qrc
 recursive-include data *.ui
-recursive-include data *.zip
 recursive-include scripts *.py
 recursive-include scripts *.rst
