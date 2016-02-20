@@ -12,6 +12,10 @@
 
 .. image:: https://img.shields.io/pypi/l/hackedit-python.svg
 
+.. image:: https://www.quantifiedcode.com/api/v1/project/d91d10d61b90454382c91d6b9bcb73b2/badge.svg
+  :target: https://www.quantifiedcode.com/app/project/d91d10d61b90454382c91d6b9bcb73b2
+  :alt: Code review
+
 |
 
 .. image:: https://badges.gitter.im/Join%20Chat.svg
