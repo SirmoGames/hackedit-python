@@ -264,11 +264,8 @@ class PyRefactor(plugins.WorkspacePlugin):
 
     def apply_preferences(self):
         for editor in api.editor.get_all_editors(True):
-            try:
+            if isinstance(editor, PyCodeEdit):
                 actions = editor.refactoring_actions
-            except AttributeError:
-                pass
-            else:
                 items = [
                     ('usages', 'Find usages', _('Find usages'), 'Alt+F7'),
                     ('rename', 'Refactor: rename', _('Refactor: rename'),
@@ -376,29 +373,20 @@ class PyRefactor(plugins.WorkspacePlugin):
             editor.insert_action(menu.menuAction(), 0)
             editor.refactoring_actions = actions
             editor.insert_action(sep, 1)
-            try:
-                m = editor.modes.get('AutoImportMode')
-            except KeyError:
-                pass
-            else:
-                m.set_project(self._main_project)
             editor.cursorPositionChanged.connect(
                 self._update_edit_actions_state)
 
     def _update_edit_actions_state(self, editor=None):
         if editor is None:
             editor = api.editor.get_current_editor()
-        if editor:
-            try:
-                flg = bool(TextHelper(editor).word_under_cursor(
-                    select_whole_word=True).selectedText())
-                editor.refactoring_actions['usages'].setEnabled(flg)
-                editor.refactoring_actions['rename'].setEnabled(flg)
-                flg = editor.textCursor().hasSelection()
-                editor.refactoring_actions['extract_method'].setEnabled(flg)
-                editor.refactoring_actions['extract_var'].setEnabled(flg)
-            except AttributeError:
-                pass  # not a pytho editor
+        if isinstance(editor, PyCodeEdit):
+            flg = bool(TextHelper(editor).word_under_cursor(
+                select_whole_word=True).selectedText())
+            editor.refactoring_actions['usages'].setEnabled(flg)
+            editor.refactoring_actions['rename'].setEnabled(flg)
+            flg = editor.textCursor().hasSelection()
+            editor.refactoring_actions['extract_method'].setEnabled(flg)
+            editor.refactoring_actions['extract_var'].setEnabled(flg)
 
     def _create_occurrences_dock(self):
         """
@@ -940,7 +928,8 @@ def report_changes(_, project, path, old_content):
         try:
             libutils.report_change(project, path, old_content)
         except AttributeError:
-            pass  # not a project file
+            _logger().warn('failed to report change for file %r, file outside '
+                           'of the project root dir?', path)
     except RopeError as e:
         error = RefactoringError()
         error.exc = str(e)

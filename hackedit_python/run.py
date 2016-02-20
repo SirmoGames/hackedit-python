@@ -8,6 +8,7 @@ from hackedit import api
 from hackedit.api.interpreters import ScriptRunnerPlugin
 from pyqode.python.widgets import PyInteractiveConsole
 
+from .editor import PyCodeEdit
 from .interpreters import PythonManager
 
 
@@ -27,13 +28,11 @@ class PyRun(ScriptRunnerPlugin):
 
     def _update_backends(self):
         for editor in api.editor.get_all_editors(include_clones=True):
-            try:
+            if isinstance(editor, PyCodeEdit):
                 interpreter = self._get_backend_interpreter(editor.file.path)
                 if interpreter and interpreter != editor.backend.interpreter:
                     editor.BACKEND_INTERPRETER = interpreter
-                editor.restart_backend()
-            except AttributeError:
-                pass  # not a PyCodeEdit
+                    editor.restart_backend()
 
     def _get_backend_interpreter(self, path):
         for prj in api.project.get_projects():

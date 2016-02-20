@@ -189,13 +189,13 @@ class PyCodeEditorPlugin(plugins.EditorPlugin):
             else:
                 editor.line_highlighter.background = QtGui.QColor('#6DC0F9')
                 editor.breakpoints_panel.background = QtGui.QColor('#FFC8C8')
-        except AttributeError:
-            pass
+        except AttributeError as e:
+            _logger().warn(str(e))
 
         try:
             m = editor.modes.get('CommentsMode')
         except KeyError:
-            pass
+            _logger().warn('editor %r has no CommentsMode', editor)
         else:
             m.action.setShortcut(api.shortcuts.get(
                 'Comment/Uncomment', _('Comment/Uncomment'), 'Ctrl+/'))
@@ -203,7 +203,7 @@ class PyCodeEditorPlugin(plugins.EditorPlugin):
         try:
             m = editor.modes.get('GoToAssignmentsMode')
         except KeyError:
-            pass
+            _logger().warn('editor %r has no GoToAssignmentsMode', editor)
         else:
             m.action_goto.setShortcut(api.shortcuts.get(
                 'Goto assignments', _('Goto assignments'), 'F7'))
@@ -211,7 +211,7 @@ class PyCodeEditorPlugin(plugins.EditorPlugin):
         try:
             m = editor.panels.get('QuickDocPanel')
         except KeyError:
-            pass
+            _logger().warn('editor %r has no QuickDocPanel', editor)
         else:
             m.action_quick_doc.setShortcut(api.shortcuts.get(
                 'Show documentation', _('Show documentation'), 'Alt+Q'))
@@ -228,7 +228,7 @@ class PyCodeEditorIntegration(plugins.WorkspacePlugin):
             try:
                 mode = tab.modes.get('GoToAssignmentsMode')
             except KeyError:
-                pass
+                _logger().warn('editor %r has no GoToAssignmentsMode', tab)
             else:
                 mode.out_of_doc.connect(self._on_goto_other_file)
             tab.restart_backend()
