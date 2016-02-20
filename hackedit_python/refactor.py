@@ -218,7 +218,8 @@ class PyRefactor(plugins.WorkspacePlugin):
                 return prj
         return None
 
-    def clean_changes(self, pending_changes):
+    @staticmethod
+    def clean_changes(pending_changes):
         if hasattr(pending_changes, '__iter__'):
             cleaned = []
             for prj, changeset in pending_changes:
@@ -262,7 +263,8 @@ class PyRefactor(plugins.WorkspacePlugin):
         self._occurrences_results.show_results(
             results, self._occurrence_to_search)
 
-    def apply_preferences(self):
+    @staticmethod
+    def apply_preferences():
         for editor in api.editor.get_all_editors(True):
             if isinstance(editor, PyCodeEdit):
                 actions = editor.refactoring_actions
@@ -376,7 +378,8 @@ class PyRefactor(plugins.WorkspacePlugin):
             editor.cursorPositionChanged.connect(
                 self._update_edit_actions_state)
 
-    def _update_edit_actions_state(self, editor=None):
+    @staticmethod
+    def _update_edit_actions_state(editor=None):
         if editor is None:
             editor = api.editor.get_current_editor()
         if isinstance(editor, PyCodeEdit):
@@ -408,7 +411,8 @@ class PyRefactor(plugins.WorkspacePlugin):
             QtGui.QIcon.fromTheme('edit-find'),
             QtCore.Qt.BottomDockWidgetArea)
 
-    def _on_occurrence_activated(self, item):
+    @staticmethod
+    def _on_occurrence_activated(item):
         assert isinstance(item, QtWidgets.QTreeWidgetItem)
         data = item.data(0, QtCore.Qt.UserRole)
         try:
@@ -555,7 +559,8 @@ class PyRefactor(plugins.WorkspacePlugin):
         if ret_val is not True:
             api.events.post(RefactoringErrorEvent(ret_val), False)
 
-    def _get_other_projects(self, path_only=False):
+    @staticmethod
+    def _get_other_projects(path_only=False):
         """
         Gets the list of secondary projects (all except current).
         """
@@ -573,7 +578,8 @@ class PyRefactor(plugins.WorkspacePlugin):
             projects.append(prj)
         return projects
 
-    def _has_multiple_projects(self):
+    @staticmethod
+    def _has_multiple_projects():
         """
         Checks whether multiple project have been opened in the main window.
         :return: True if window has multiple project, False if window only has
@@ -581,7 +587,8 @@ class PyRefactor(plugins.WorkspacePlugin):
         """
         return len(api.project.get_projects()) > 1
 
-    def _on_document_saved(self, path, old_content):
+    @staticmethod
+    def _on_document_saved(path, old_content):
         if not path:
             return
         project = None
@@ -599,7 +606,8 @@ class PyRefactor(plugins.WorkspacePlugin):
                             args=(project, path, old_content),
                             use_thread=False)
 
-    def _get_real_position(self, position):
+    @staticmethod
+    def _get_real_position(position):
         """
         Gets the real cursor position (there might be a difference between
         editor content and file system content because of clean_trailing

@@ -28,10 +28,12 @@ class PythonManager(InterpreterManager):
             'python', default_interpreter=os.path.realpath(sys.executable),
             mimetype='text/x-python')
 
-    def _detect_system_interpreters(self):
+    @staticmethod
+    def _detect_system_interpreters():
         return detect_system_interpreters()
 
-    def get_interpreter_icon(self):
+    @staticmethod
+    def get_interpreter_icon():
         if QtGui.QIcon.hasThemeIcon('python'):
             icon = QtGui.QIcon.fromTheme('python')
         else:
@@ -44,8 +46,8 @@ class ManageInterpreters(plugins.PreferencePagePlugin):
     This plugins lets you manage the python interpreters (add local
     interpreters, create virtualenvs and manage packagesc).
     """
-    @classmethod
-    def get_preferences_page(cls):
+    @staticmethod
+    def get_preferences_page():
         return PageManageInterpreters()
 
 

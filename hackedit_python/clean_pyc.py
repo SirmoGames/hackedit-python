@@ -22,7 +22,8 @@ class CleanPycFiles(api.plugins.WorkspacePlugin):
             _('Removes *.pyc/__pycache__ for the active project'))
         self.action_clean.triggered.connect(self._clean_pyc_files)
 
-    def _clean_pyc_files(self):
+    @staticmethod
+    def _clean_pyc_files():
         api.tasks.start(_('Cleaning *.pyc files'), clean_pyc_files, None,
                         args=(api.project.get_projects(),))
 

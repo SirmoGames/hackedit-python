@@ -167,12 +167,12 @@ class PyCodeEditorPlugin(plugins.EditorPlugin):
             '-s', _get_backend_libs_path()]
         return PyCodeEdit
 
-    @classmethod
-    def get_specific_preferences_page(cls):
+    @staticmethod
+    def get_specific_preferences_page():
         return PythonEditorPreferences()
 
-    @classmethod
-    def apply_specific_preferences(cls, editor):
+    @staticmethod
+    def apply_specific_preferences(editor):
         """
         Apply preferences specific to the python editor.
 
@@ -233,13 +233,15 @@ class PyCodeEditorIntegration(plugins.WorkspacePlugin):
                 mode.out_of_doc.connect(self._on_goto_other_file)
             tab.restart_backend()
 
-    def _on_goto_other_file(self, assignment):
+    @staticmethod
+    def _on_goto_other_file(assignment):
         path = assignment.module_path
         line = assignment.line
         column = assignment.column
         api.editor.open_file(path, line, column)
 
-    def _set_backend_options(self, _):
+    @staticmethod
+    def _set_backend_options(*args):
         # this is needed only for python, to know which interpreter to
         # use for the backend, if interpreter is different than
         # sys.executable, it will use backend-libraries stored in
@@ -284,7 +286,8 @@ class PythonEditorPreferences(api.widgets.PreferencePage):
         self.ui.cb_fold_docstrings.setChecked(get_fold_docstrings())
         self.ui.cb_fold_imports.setChecked(get_fold_imports())
 
-    def restore_defaults(self):
+    @staticmethod
+    def restore_defaults():
         set_fold_docstrings(False)
         set_fold_imports(False)
 

@@ -8,7 +8,8 @@ else:
 
 
 class PythonWorkspace:
-    def get_data(self):
+    @staticmethod
+    def get_data():
         data = {
           'name': 'Python',
           'description': 'Default pure python workspace.',

@@ -8,7 +8,8 @@ from pyqode.python.backend import defined_names
 class PySymbolIndexor(api.plugins.SymbolIndexorPlugin):
     mimetypes = ['text/x-python']
 
-    def parse(self, path):
+    @staticmethod
+    def parse(path):
         if path.endswith('_rc.py'):
             return []
         try:
