@@ -1,4 +1,5 @@
 hackedit_python/forms/*
+hackedit_python/extlibs/*
 scripts/*
 data/*
 .hackedit/config.py
