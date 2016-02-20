@@ -361,6 +361,28 @@ class _DlgCreateVirtualEnv(QtWidgets.QDialog):
         self._ui.edit_name.setToolTip(
             _('Path already exists') if exists else '')
 
+    @property
+    def path(self):
+        """
+        Gets the full path of the virtualenv to create.
+        """
+        return self._ui.label_full_path.text()
+
+    @property
+    def interprerer(self):
+        """
+        Gets the base interpreter to use for creating the new virtualenv.
+        """
+        return self._ui.combo_interpreters.currentText()
+
+    @property
+    def use_system_site_packages(self):
+        """
+        Gets the flags that specifies if the new virtualenv can use the system
+        site packages for searching for python packages.
+        """
+        return self._ui.check_box_site_packages.isChecked()
+
     @classmethod
     def get_virtualenv_creation_params(cls, parent):
         """
@@ -369,9 +391,6 @@ class _DlgCreateVirtualEnv(QtWidgets.QDialog):
         """
         dlg = cls(parent)
         if dlg.exec_() == dlg.Accepted:
-            path = dlg._ui.label_full_path.text()
-            interprerer = dlg._ui.combo_interpreters.currentText()
-            system_site_packages = dlg._ui.check_box_site_packages.isChecked()
-            return path, interprerer, system_site_packages
+            return dlg.path, dlg.interprerer, dlg.use_system_site_packages
         else:
             return None
