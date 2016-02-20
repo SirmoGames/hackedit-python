@@ -1,7 +1,7 @@
 try:
-    from IPython.qt.console.rich_ipython_widget import RichIPythonWidget
+    from IPython.qt.console import rich_ipython_widget
 except ImportError:
-    RichIPythonWidget = None
+    rich_ipython_widget = None
     ipython_available = False
 else:
     ipython_available = True

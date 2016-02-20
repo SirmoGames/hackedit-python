@@ -1,4 +1,4 @@
-hackedit_cobol/forms/*
+hackedit_python/forms/*
 scripts/*
 data/*
 .hackedit/config.py
