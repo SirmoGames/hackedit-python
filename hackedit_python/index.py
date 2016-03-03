@@ -5,7 +5,11 @@ from pyqode.core.share import Definition
 from pyqode.python.backend import defined_names
 
 
-class PySymbolIndexor(api.plugins.SymbolIndexorPlugin):
+class PySymbolParser(api.plugins.SymbolParserPlugin):
+    """
+    Parses symbols of python files, the parsed symbols are added to the project
+    index by the indexing backend.
+    """
     mimetypes = ['text/x-python']
 
     @staticmethod
