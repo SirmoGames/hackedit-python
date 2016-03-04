@@ -36,7 +36,7 @@ with open('README.rst', 'r') as readme:
     long_desc = readme.read()
 
 
-data_files = [('share/hackedit_python', ['data/share/extlibs.zip'])]
+data_files = []
 # translations
 translations = [
     ('share/locale/%s' % x[0].replace('data/locale/', ''),
