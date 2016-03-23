@@ -5,7 +5,7 @@ HackEdit.
 import os
 import sys
 
-__version__ = '1.0a2.dev0'
+__version__ = '1.0a2.dev1'
 
 
 EXTLIBS_PATH = os.path.join(os.path.dirname(__file__), 'extlibs')
