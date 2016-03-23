@@ -620,9 +620,13 @@ class PyRefactor(plugins.WorkspacePlugin):
         l = tc.blockNumber()
         c = tc.positionInBlock()
         e = api.editor.get_current_editor().file.encoding
-        with open(api.editor.get_current_editor().file.path, 'r',
-                  encoding=e) as f:
-            lines = f.readlines()
+        path = api.editor.get_current_editor().file.path
+        try:
+            with open(path, 'r', encoding=e) as f:
+                lines = f.readlines()
+        except OSError:
+            _logger().exception('failed to read file %s', path)
+            lines = []
         real_pos = 0
         for i, line in enumerate(lines):
             if i == l:

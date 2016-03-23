@@ -29,7 +29,11 @@ class CleanPycFiles(api.plugins.WorkspacePlugin):
 
 
 def clean_directory(path):
-    for filename in os.listdir(path):
+    try:
+        files = os.listdir(path)
+    except OSError:
+        files = []
+    for filename in files:
         fpath = os.path.join(path, filename)
         if os.path.splitext(filename)[1] == '.pyc':
             try:

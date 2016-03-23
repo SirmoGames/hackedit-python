@@ -2,6 +2,7 @@
 This plugin add additional actions to the filesystem context menu
 specific to python (create package, create module,...).
 """
+import logging
 import mimetypes
 import os
 
@@ -121,9 +122,13 @@ class PyContextMenus(plugins.WorkspacePlugin):
             if not os.path.splitext(name)[1]:
                 name += '.py'
             path = os.path.join(src, name)
-            with open(path, 'w'):
-                pass
-            self._tree_view.file_created.emit(path)
+            try:
+                with open(path, 'w'):
+                    pass
+            except OSError:
+                _logger().exception('failed to create new python module')
+            else:
+                self._tree_view.file_created.emit(path)
 
     def _on_new_package_triggered(self):
         src = self._tree_view.helper.get_current_path()
@@ -135,11 +140,15 @@ class PyContextMenus(plugins.WorkspacePlugin):
             QtWidgets.QLineEdit.Normal, _('my_package'))
         if status:
             path = os.path.join(src, name)
-            os.makedirs(path)
-            path = os.path.join(path, '__init__.py')
-            with open(path, 'w'):
-                pass
-            self._tree_view.file_created.emit(path)
+            try:
+                os.makedirs(path)
+                path = os.path.join(path, '__init__.py')
+                with open(path, 'w'):
+                    pass
+            except OSError:
+                _logger().exception('failed to create new python package')
+            else:
+                self._tree_view.file_created.emit(path)
 
     def _create_default_config(self, path):
         project = None
@@ -192,3 +201,7 @@ class PyContextMenus(plugins.WorkspacePlugin):
         if os.path.isfile(path):
             self._create_default_config(path)
             self._py_run.configure()
+
+
+def _logger():
+    return logging.getLogger(__name__)

@@ -22,8 +22,11 @@ def detect_system_interpreters():
                 pass
             tmp_path = os.path.join(tmp_dir, 'version')
             with open(tmp_path, 'w') as stderr:
-                output = subprocess.check_output([path, '--version'],
-                                                 stderr=stderr).decode()
+                try:
+                    output = subprocess.check_output([path, '--version'],
+                                                     stderr=stderr).decode()
+                except (OSError, subprocess.CalledProcessError):
+                    output = ''
             if not output:
                 # Python2 print version to stderr (at least on OSX)
                 with open(tmp_path, 'r') as stderr:

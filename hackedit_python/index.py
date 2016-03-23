@@ -23,11 +23,11 @@ class PySymbolParser(api.plugins.SymbolParserPlugin):
         try:
             with open(path, encoding=encoding) as f:
                 code = f.read()
-        except UnicodeDecodeError:
+        except (UnicodeDecodeError, OSError):
             try:
                 with open(path, encoding='utf-8') as f:
                     code = f.read()
-            except UnicodeDecodeError:
+            except (UnicodeDecodeError, OSError):
                 # could not deduce encoding
                 return []
         request_data = {
