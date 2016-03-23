@@ -36,7 +36,7 @@ with open('README.rst', 'r') as readme:
     long_desc = readme.read()
 
 
-data_files = [('share/hackedit_python', ['data/share/extlibs.zip'])]
+data_files = []
 # translations
 translations = [
     ('share/locale/%s' % x[0].replace('data/locale/', ''),
@@ -82,8 +82,8 @@ setup(
         'hackedit.plugins.preference_pages': [
             'interpreters = hackedit_python.interpreters:ManageInterpreters'
         ],
-        'hackedit.plugins.symbol_indexors': [
-            'PySymbolIndexor = hackedit_python.indexor:PySymbolIndexor'
+        'hackedit.plugins.symbol_parsers': [
+            'PySymbolIndexor = hackedit_python.index:PySymbolParser'
         ],
         # builtin workspaces
         'hackedit.plugins.workspace_providers': [
