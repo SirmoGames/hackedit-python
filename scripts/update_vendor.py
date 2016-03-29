@@ -1,15 +1,9 @@
 """
-This script updates OCIDE's extlibs (the pure python dependencies are now
-bundled into the open_cobol_ide package as package data,
-../open_cobol_ide/extlibs).
-
-Here is the list of bundled packages:
-
-  - virtualenv
-  - rope
+This script updates the vendor package (that contains all pure python
+dependencies).
 
 Those package must be installed in the development environment. You can install
-them all by running ``sudo pip3 -r requirements.txt --upgrade``.
+them all by running ``sudo pip3 -r requirements.txt``.
 """
 import os
 import shutil
@@ -19,12 +13,12 @@ import virtualenv
 import rope
 
 
-BUILD = os.path.abspath('../hackedit_python/extlibs')
+BUILD = os.path.abspath('../hackedit_python/vendor')
 
 README = '''"""
 This directory contains the pure python dependencies of hackedit-python.
 
-You can update the dependencies by running ``update_extlibs.py`` (located in
+You can update the dependencies by running ``update_vendor.py`` (located in
 the ``scripts`` folder)
 """
 '''

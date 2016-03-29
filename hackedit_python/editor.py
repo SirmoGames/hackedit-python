@@ -33,7 +33,7 @@ def _logger():
 
 
 def _get_backend_libs_path():
-    return os.environ['HACKEDIT_EXTLIBS_PATH']
+    return os.environ['HACKEDIT_VENDOR_PATH']
 
 
 class DisplayEditor(PyCodeEditBase):

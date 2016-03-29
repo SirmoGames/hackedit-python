@@ -8,8 +8,8 @@ import sys
 __version__ = '1.0a2.dev1'
 
 
-EXTLIBS_PATH = os.path.join(os.path.dirname(__file__), 'extlibs')
-sys.path.insert(0, EXTLIBS_PATH)
+vendor = os.path.join(os.path.dirname(__file__), 'vendor')
+sys.path.insert(0, vendor)
 
 
 try:
