@@ -73,7 +73,7 @@ Installation
 
 ::
 
-    pip3 install hackedit-python --upgrade
+    pip3 install hackedit-python --pre --upgrade
 
 .. _HackEdit: https://github.com/HackEdit/hackedit
 .. _docutils: https://pypi.python.org/pypi/docutils
