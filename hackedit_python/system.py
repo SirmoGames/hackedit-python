@@ -3,6 +3,7 @@ import os
 import platform
 import re
 import subprocess
+import sys
 import tempfile
 
 
@@ -48,6 +49,7 @@ def detect_system_interpreters():
                     executables.append(os.path.realpath(pth))
     else:
         executables = set()
+        executables.add(sys.executable)
         paths = os.environ['PATH'].split(';')
         for path in paths:
             if 'python' in path.lower():
