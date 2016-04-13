@@ -1,4 +1,5 @@
+# Dependencies of hackedit-python, also have a look at requirements-opt for the optional dependencies
+# and at requirements-dev for the develop dependencies
 hackedit
 docutils
-virtualenv
--e git://github.com/python-rope/rope.git@devel#egg=rope
+
