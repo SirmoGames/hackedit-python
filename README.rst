@@ -62,7 +62,7 @@ The following packages are optional dependencies:
 - `pyzmq`_
 
 
-The following packages are included in a zip archive:
+The following packages are included in a "vendor" subpackage.
 
 - `rope`_
 - `virtualenv`_
