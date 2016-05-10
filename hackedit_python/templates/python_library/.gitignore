@@ -1,6 +1,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*$py.class
 
 # C extensions
 *.so
@@ -9,11 +10,11 @@ __pycache__/
 .Python
 env/
 build/
-src/
 develop-eggs/
 dist/
 downloads/
 eggs/
+.eggs/
 lib/
 lib64/
 parts/
@@ -37,12 +38,26 @@ pip-delete-this-directory.txt
 htmlcov/
 .tox/
 .coverage
+.coverage.*
 .cache
 nosetests.xml
 coverage.xml
+*,cover
+.hypothesis/
+
+# Translations
+*.mo
+*.pot
 
 # Django stuff:
 *.log
+local_settings.py
+
+# Flask instance folder
+instance/
+
+# Scrapy stuff:
+.scrapy
 
 # Sphinx documentation
 docs/_build/
@@ -50,22 +65,24 @@ docs/_build/
 # PyBuilder
 target/
 
-# PyCharm
-.idea
+# IPython Notebook
+.ipynb_checkpoints
 
-# Dolphin (KDE)
-.directory
+# pyenv
+.python-version
 
-win32/build
+# celery beat schedule file
+celerybeat-schedule
 
-# gedit temp files
-*~
+# dotenv
+.env
 
-# hackedit project files
+# virtualenv
+venv/
+ENV/
+
 # hackedit project files
 *.usr
 history
 objectdb
 *.db
-
-tests/**/*Proj*/.hackedit

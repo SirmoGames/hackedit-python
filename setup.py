@@ -56,6 +56,7 @@ setup(
     name='hackedit-python',
     version=hackedit_python.__version__,
     packages=find_packages(),
+    include_package_data=True,
     keywords=['IDE', 'Intergrated Development Environment', 'TextEditor',
               'Editor'],
     url='https://github.com/HackEdit/hackedit-python',
