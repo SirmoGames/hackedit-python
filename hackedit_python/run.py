@@ -6,7 +6,6 @@ import os
 
 from hackedit import api
 from hackedit.api.interpreters import ScriptRunnerPlugin
-from pyqode.python.widgets import PyInteractiveConsole
 
 from .editor import PyCodeEdit
 from .interpreters import PythonManager
@@ -17,8 +16,7 @@ class PyRun(ScriptRunnerPlugin):
     Plugin for running python scripts.
     """
     def __init__(self, window):
-        super().__init__(
-            window, PythonManager(), run_console=PyInteractiveConsole)
+        super().__init__(window, PythonManager())
 
     def configure(self):
         super().configure()
