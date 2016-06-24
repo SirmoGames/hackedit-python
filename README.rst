@@ -42,7 +42,6 @@ Features:
   - go to definition
   - call tips
   - documentation viewer
-- IPython integration (jupyter not supported yet)
 - refactoring (with `rope`_)
 - package manager interface
 - support for virtualenv and custom intepreters
@@ -55,11 +54,6 @@ The following packages are needed:
 
 - `hackedit`_
 - `docutils`_
-
-The following packages are optional dependencies:
-
-- `ipython`_ (== 3.2.1, jupyter not supported yet)
-- `pyzmq`_
 
 
 The following packages are included in a "vendor" subpackage.
@@ -77,8 +71,6 @@ Installation
 
 .. _HackEdit: https://github.com/HackEdit/hackedit
 .. _docutils: https://pypi.python.org/pypi/docutils
-.. _ipython: https://pypi.python.org/pypi/IPython
-.. _pyzmq: https://pypi.python.org/pypi/pyzmq
 .. _rope: https://pypi.python.org/pypi/rope_py3k
 .. _virtualenv: https://pypi.python.org/pypi/virtualenv
 .. _pyqode.python: https://github.com/pyQode/pyqode.python

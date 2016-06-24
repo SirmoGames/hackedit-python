@@ -385,11 +385,16 @@ class PyRefactor(plugins.WorkspacePlugin):
         if isinstance(editor, PyCodeEdit):
             flg = bool(TextHelper(editor).word_under_cursor(
                 select_whole_word=True).selectedText())
-            editor.refactoring_actions['usages'].setEnabled(flg)
-            editor.refactoring_actions['rename'].setEnabled(flg)
-            flg = editor.textCursor().hasSelection()
-            editor.refactoring_actions['extract_method'].setEnabled(flg)
-            editor.refactoring_actions['extract_var'].setEnabled(flg)
+            try:
+                editor.refactoring_actions
+            except AttributeError:
+                return
+            else:
+                editor.refactoring_actions['usages'].setEnabled(flg)
+                editor.refactoring_actions['rename'].setEnabled(flg)
+                flg = editor.textCursor().hasSelection()
+                editor.refactoring_actions['extract_method'].setEnabled(flg)
+                editor.refactoring_actions['extract_var'].setEnabled(flg)
 
     def _create_occurrences_dock(self):
         """

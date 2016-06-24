@@ -68,10 +68,10 @@ setup(
     data_files=data_files,
     install_requires=['docutils'],
     entry_points={
-        # our workspaces plugins (run script, ipython, rope,...)
+        # our workspaces plugins (run script, rope,...)
         'hackedit.plugins.workspace_plugins': [
             'PyRun = hackedit_python.run:PyRun',
-            'IPythonConsole = hackedit_python.ipython:IPythonConsole',
+            'PyConsole = hackedit_python.pyconsole:PyConsole',
             'PyRefactor = hackedit_python.refactor:PyRefactor',
             'PyContextMenus = hackedit_python.context_menus:PyContextMenus',
             'PyOpenModule = hackedit_python.open_module:PyOpenModule',
