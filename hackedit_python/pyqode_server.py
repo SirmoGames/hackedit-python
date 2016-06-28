@@ -19,6 +19,7 @@ for writing your own server.
 """
 import argparse
 import logging
+import os
 import sys
 
 
@@ -39,6 +40,8 @@ if __name__ == '__main__':
         for path in args.syspath:
             print('append path %s to sys.path' % path)
             sys.path.append(path)
+
+    sys.path.append(os.environ['HACKEDIT_VENDOR_PATH'])
 
     from pyqode.core import backend
     from pyqode.python.backend.workers import JediCompletionProvider
