@@ -28,6 +28,7 @@ class PyConsole(api.plugins.WorkspacePlugin):
                            QtWidgets.QSizePolicy.Expanding)
         self.script_runner = api.plugins.get_script_runner()
         self.script_runner.config_refreshed.connect(self._update_interpreter)
+        self._interpeter = None
         self._update_interpreter()
 
     def close(self):
@@ -40,4 +41,7 @@ class PyConsole(api.plugins.WorkspacePlugin):
         self.widget.update_terminal_colors()
 
     def _update_interpreter(self):
-        self.widget.change_interpreter(PythonManager().get_project_interpreter(api.project.get_current_project()))
+        interpeter = PythonManager().get_project_interpreter(api.project.get_current_project())
+        if interpeter != self._interpeter:
+            self.widget.change_interpreter(interpeter)
+            self._interpeter = interpeter
