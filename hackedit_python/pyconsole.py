@@ -2,7 +2,7 @@
 This module contains a plugin that show a terminal in the bottom
 area of the window.
 """
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 
 from pyqode.core.api import ColorScheme
 from pyqode.python.widgets import PyConsole as PyConsoleWidget
@@ -10,6 +10,7 @@ from pyqode.python.widgets import PyConsole as PyConsoleWidget
 from hackedit import api
 from hackedit.app import settings
 
+from . import pyqode_server
 from .interpreters import PythonManager
 
 
@@ -18,7 +19,8 @@ class PyConsole(api.plugins.WorkspacePlugin):
     Adds a python console widget to the IDE.
     """
     def activate(self):
-        self.widget = PyConsoleWidget(parent=api.window.get_main_window(), color_scheme=settings.color_scheme())
+        self.widget = PyConsoleWidget(parent=api.window.get_main_window(), color_scheme=settings.color_scheme(),
+                                      backend=pyqode_server.__file__)
         dock = api.window.add_dock_widget(self.widget, _('Python Console'),
                                           PythonManager.get_interpreter_icon(), QtCore.Qt.BottomDockWidgetArea)
         dock.hide()
