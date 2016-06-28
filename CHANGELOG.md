@@ -1,13 +1,17 @@
 # Change Log
 
-## [Unreleased](https://github.com/HackEdit/hackedit-python/tree/HEAD)
+## [1.0a2](https://github.com/HackEdit/hackedit-python/tree/1.0a2) (2016-06-28)
+[Full Changelog](https://github.com/HackEdit/hackedit-python/compare/1.0a1...1.0a2)
 
-[Full Changelog](https://github.com/HackEdit/hackedit-python/compare/1.0a1...HEAD)
+**Implemented enhancements:**
+
+- Replace IPython console with the Python console from pyqode [\#6](https://github.com/HackEdit/hackedit-python/pull/6) ([ColinDuquesnoy](https://github.com/ColinDuquesnoy))
 
 **Fixed bugs:**
 
 - IndexError: list index out of range [\#5](https://github.com/HackEdit/hackedit-python/issues/5)
 - AttributeError: 'PyCodeEdit' object has no attribute 'pat [\#4](https://github.com/HackEdit/hackedit-python/issues/4)
+- AttributeError: 'PyCodeEdit' object has no attribute 'ref [\#3](https://github.com/HackEdit/hackedit-python/issues/3)
 
 **Merged pull requests:**
 
