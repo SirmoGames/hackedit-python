@@ -26,6 +26,9 @@ class PyConsole(api.plugins.WorkspacePlugin):
         dock.hide()
         dock.setSizePolicy(QtWidgets.QSizePolicy.Expanding,
                            QtWidgets.QSizePolicy.Expanding)
+        self.script_runner = api.plugins.get_script_runner()
+        self.script_runner.config_refreshed.connect(self._update_interpreter)
+        self._update_interpreter()
 
     def close(self):
         self.widget.close()
@@ -35,3 +38,6 @@ class PyConsole(api.plugins.WorkspacePlugin):
         self.widget.font_size = settings.editor_font_size()
         self.widget.syntax_highlighter.color_scheme = ColorScheme(settings.color_scheme())
         self.widget.update_terminal_colors()
+
+    def _update_interpreter(self):
+        self.widget.change_interpreter(PythonManager().get_project_interpreter(api.project.get_current_project()))
