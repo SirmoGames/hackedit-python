@@ -5,7 +5,7 @@ HackEdit.
 import os
 import sys
 
-__version__ = '1.0a2.dev1'
+__version__ = '1.0a2'
 
 
 vendor = os.path.join(os.path.dirname(__file__), 'vendor')
